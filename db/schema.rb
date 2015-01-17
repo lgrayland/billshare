@@ -11,18 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150117104030) do
+=======
+ActiveRecord::Schema.define(version: 20150117110939) do
+>>>>>>> dev_andres
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "groupings", force: true do |t|
     t.integer  "user_id"
     t.integer  "group_id"
+=======
+  create_table "bill_types", force: true do |t|
+    t.string   "name"
+>>>>>>> dev_andres
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "groups", force: true do |t|
     t.string "name"
     t.string "description"
@@ -41,11 +51,33 @@ ActiveRecord::Schema.define(version: 20150117104030) do
     t.inet     "last_sign_in_ip"
     t.string   "first_name"
     t.string   "last_name"
+=======
+  create_table "bills", force: true do |t|
+    t.string   "name"
+    t.float    "amount"
+    t.date     "deadline"
+    t.integer  "bill_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "bills", ["bill_type_id"], name: "index_bills_on_bill_type_id", using: :btree
+
+  create_table "proportions", force: true do |t|
+    t.decimal  "percentage",   precision: 2, scale: 0
+    t.integer  "grouping_id"
+    t.integer  "bill_type_id"
+>>>>>>> dev_andres
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+<<<<<<< HEAD
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+=======
+  add_index "proportions", ["bill_type_id"], name: "index_proportions_on_bill_type_id", using: :btree
+  add_index "proportions", ["grouping_id"], name: "index_proportions_on_grouping_id", using: :btree
+>>>>>>> dev_andres
 
 end
