@@ -4,6 +4,7 @@ class CreateBills < ActiveRecord::Migration
       t.string :name
       t.float :amount
       t.date :deadline
+      t.references :bill_type, index: true
 
       t.timestamps
     end
