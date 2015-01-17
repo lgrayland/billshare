@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150117110939) do
   add_index "bills", ["bill_type_id"], name: "index_bills_on_bill_type_id", using: :btree
 
   create_table "proportions", force: true do |t|
-    t.float    "percentage"
+    t.decimal  "percentage",   precision: 2, scale: 0
     t.integer  "grouping_id"
     t.integer  "bill_type_id"
     t.datetime "created_at"
