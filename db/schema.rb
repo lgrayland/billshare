@@ -11,9 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150117110939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bill_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bills", force: true do |t|
+    t.string   "name"
+    t.float    "amount"
+    t.date     "deadline"
+    t.integer  "bill_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bills", ["bill_type_id"], name: "index_bills_on_bill_type_id", using: :btree
+
+  create_table "proportions", force: true do |t|
+    t.float    "percentage"
+    t.integer  "grouping_id"
+    t.integer  "bill_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "proportions", ["bill_type_id"], name: "index_proportions_on_bill_type_id", using: :btree
+  add_index "proportions", ["grouping_id"], name: "index_proportions_on_grouping_id", using: :btree
 
 end
