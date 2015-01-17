@@ -9,6 +9,7 @@
 
 User.delete_all
 Group.delete_all
+Grouping.delete_all
 Bill.delete_all
 BillType.delete_all
 Proportion.delete_all
