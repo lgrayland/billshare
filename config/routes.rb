@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   get 'users/:id/show' => 'users#show', as: :user_resources
 
   devise_for :users
-  root to: "home#index"
+
+  authenticated :user do
+    root to: "users#show", as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: "home#index"
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
