@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   private
   def set_resources
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     # @groups = Group.where
   end
 end
