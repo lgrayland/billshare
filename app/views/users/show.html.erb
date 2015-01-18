@@ -1,2 +1,26 @@
 <h3>Hello <%= @user.first_name%></h3>
 
+<table  style="width:100%">
+  <tr>
+    <th>
+      <h3>Your groups:</h3>
+    </th>
+    <% @user.groups.each do |group| %>
+    <td>
+        <%= group.name %>
+    </td>
+    <th>
+      <h3>Group Bills:</h3>
+    </th>
+    <td>
+      <% User.user_bills(@user.first_name, group.name).each do |bill| %>
+        <%= bill.name %>: <%= bill.amount %> <br>
+          <% User.user_proportions(@user.first_name, group.name).each do |proportion| %>
+            <!-- <%= proportion %> -->
+          <%end %>
+        <% end %>
+    </td>
+    <% end %>
+  </tr>
+</table>
+
