@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_resources, only: :show
   def show
-    @user = current_user
   end
 
   def edit
@@ -17,6 +16,7 @@ class UsersController < ApplicationController
   private
 
   def set_resources
+    @user = current_user
     # @user = User.find(params[:id])
     # @groups = Group.where
   end
