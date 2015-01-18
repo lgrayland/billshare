@@ -39,8 +39,10 @@ tv_pr4 = Proportion.create!(percentage: 25)
 
 tv_type.bills.push(tv)
 tv_type.proportions.push(tv_pr1, tv_pr2, tv_pr3, tv_pr4)
-#########################
 
+#########################
+#### CREATE PARTY #######
+#########################
 u1 = User.create!(email: "u1@u1.com", password: "password", first_name: "u1", last_name: "u1l")
 u2 = User.create!(email: "u2@u2.com", password: "password", first_name: "u2", last_name: "u2l")
 u3 = User.create!(email: "u3@u3.com", password: "password", first_name: "u3", last_name: "u3l")
@@ -57,10 +59,34 @@ party_type = BillType.create!(name: "party")
 party.bills.push(party_drinks, party_fruits, party_girls, party_music)
 party_type.bills.push(party_drinks, party_fruits, party_girls, party_music)
 
+# Create and add bill types to users which involves in party
+u1_party_bill_type = BillType.create(name: "u1_paty_bill_type")
+u1.groups.find(party.id).bill_types.push(u1_party_bill_type)
 
+u2_party_bill_type = BillType.create(name: "u2_paty_bill_type")
+u2.groups.find(party.id).bill_types.push(u2_party_bill_type)
 
+u3_party_bill_type = BillType.create(name: "u3_paty_bill_type")
+u3.groups.find(party.id).bill_types.push(u3_party_bill_type)
 
+## Create percentage for users
+  #u1
+u1_party_proportion = Proportion.create!(percentage: 33)
+  #in both relations groupings and bill_types
+u1.groupings.last.proportions.push(u1_party_proportion)
+u1.groups.find(party.id).bill_types.find(u1_party_bill_type.id).proportions.push(u1_party_proportion)
 
+#u2
+u2_party_proportion = Proportion.create!(percentage: 28)
+  #in both relations groupings and bill_types
+u2.groupings.last.proportions.push(u2_party_proportion)
+u2.groups.find(party.id).bill_types.find(u2_party_bill_type.id).proportions.push(u2_party_proportion)
+
+#u3
+u3_party_proportion = Proportion.create!(percentage: 15)
+  #in both relations groupings and bill_types
+u3.groupings.last.proportions.push(u3_party_proportion)
+u3.groups.find(party.id).bill_types.find(u3_party_bill_type.id).proportions.push(u3_party_proportion)
 
 
 
