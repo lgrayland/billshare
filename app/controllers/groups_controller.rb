@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def show
-    @genre = Genre.find(params[:id])
+    @group = Group.find(params[:id])
   end
-  
+
 end

@@ -8,6 +8,7 @@
     <% @user.groups.each do |group| %>
     <td>
         <%= group.name %>
+        <%= link_to "Details", group_path(group) %>
     </td>
     <th>
       <h3>Group Bills:</h3>
