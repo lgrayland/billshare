@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   scope :user_bills, -> (user_first_name, group_name)   { find_by(first_name: user_first_name).groups.find_by(name: group_name).bills }
   
-  scope :user_proportions, -> (user_first_name, group_name) { find_by(first_name: user_first_name).groupings }
+  scope :user_proportions, -> (user_id, group_id) { find(user_id).groupings.find_by_group_id(group_id).proportions }
 
   # scope :user_proportions, -> (user_id, group_id) { find(user_id).groupings.find_by_group_id(group_id).proportions }
 
