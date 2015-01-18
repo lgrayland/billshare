@@ -25,7 +25,7 @@ gr2 = Group.create!(name: "House share 2", description: "A group for a flat shar
 gr1.users.push(luke, andres, neil)
 
 inet = Bill.create!(name: "Internet", amount: 40, deadline: "2015.2.15")
-inet_type = BillType.create!(name: "Interet")
+inet_type = BillType.create!(name: "internet_bt")
 inet_pr1 = Proportion.create!(percentage: 50)
 inet_pr2 = Proportion.create!(percentage: 50)
 
@@ -33,7 +33,7 @@ inet_type.bills.push(inet)
 inet_type.proportions.push(inet_pr1, inet_pr2)
 
 tv = Bill.create!(name: "TV", amount: 24, deadline: "2015.2.15")
-tv_type = BillType.create!(name: "TV")
+tv_type = BillType.create!(name: "tv_bt")
 tv_pr1 = Proportion.create!(percentage: 25)
 tv_pr2 = Proportion.create!(percentage: 25)
 tv_pr3 = Proportion.create!(percentage: 25)
