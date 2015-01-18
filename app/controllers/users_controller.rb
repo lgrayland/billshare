@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   private
   def set_resources
     # @user = User.find(params[:id])
