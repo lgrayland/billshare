@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'users/:id/show' => 'users#show', as: :user_resources
 
   devise_for :users
+
+  resources :users
 
   authenticated :user do
     root to: "users#show", as: :authenticated_root
