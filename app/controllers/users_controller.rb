@@ -5,23 +5,6 @@ class UsersController < ApplicationController
 
   def show
 
-    #find group where user
-    # @groups = []
-    # @bills = []
-    # @bill_types = []
-
-    # Group.all.each do |group|
-    #   group.users.each do |user_group|
-    #     if user_group.id == @user.id
-    #       @groups << group
-    #       @bills << User.user_bills(@user.first_name, group.name)
-    #       @bill_types << Group.group_bill_types(group.id)
-    #     end
-    #   end
-    # end
-
-    # raise
-
   end
 
   def edit
