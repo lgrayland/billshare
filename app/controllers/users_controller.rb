@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_resources, only: [:show, :edit]
 
+  before_action :authenticate_user!
+
   def show
     
 
