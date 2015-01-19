@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @bills = Bill.where(group_id: @group.id)
   end
 
   def edit
