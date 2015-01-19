@@ -1,9 +1,6 @@
 <h3>Hello <%= @user.first_name%></h3>
 <%= link_to "Edit profile", edit_user_path(@user) %>
 
-<table  style="width:100%">
-  <tr>
-    
     <% @user.groups.each do |group| %>
     <h3>Your groups: </h3>
         <%= group.name %>
@@ -23,7 +20,7 @@
       <p>--------------------------</p>
       <br>
     <% end %> 
-</table>
+
 
 <br>
 <% @groups.each do |group| %>
