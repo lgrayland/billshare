@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_resources, only: [:show, :edit]
 
   def show
-    
 
     #find group where user
     @groups = []
