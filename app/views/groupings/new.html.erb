@@ -1,1 +1,4 @@
-new.html.erb
+<%= form_for [@group, @grouping] do |f| %>
+<%= f.collection_select(:user_id, User.all, :id, :first_name ) %>
+<%= f.submit %>
+<% end %>
