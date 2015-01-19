@@ -14,9 +14,18 @@
  *= require_self
  */
 
+ .floatright {
+     float:right;
+ }
+ul {
+    padding: 1em 0;
+}
+
 li {
-    list-style-type: none;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  font-family: "Arial";
+  text-decoration: none;
+    display: inline;
+     padding: 0 1em;
+    
 }
