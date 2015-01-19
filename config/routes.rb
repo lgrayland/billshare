@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   end
  
   get '/home' => 'pages#home'
-  get '/home' => 'pages#home'
   get '/about' => 'pages#about'
   
   
