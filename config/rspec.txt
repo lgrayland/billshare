@@ -1,0 +1,20 @@
+gem 'rspec-rails'
+
+delete test folder 
+
+in config/application.rb
+  config.generators do |g|
+    g.template_engine :haml
+    g.test_framework  :rspec, fixtures: true, views: false
+    g.fixture_replacement :factory_girl, dir: "spec/factories"
+  end
+
+  require 'spec_helper'
+
+  describe User do
+    it "should do smth" do
+      (1+1).should == 2
+    end
+  end
+
+  rake db:test:clone
