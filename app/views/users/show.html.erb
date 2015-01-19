@@ -1,28 +1,16 @@
 <h3>Hello <%= @user.first_name%></h3>
 <%= link_to "Edit profile", edit_user_path(@user) %>
 
+<div>
 <% @user.groups.each do |group| %>
 <h3>Your groups: </h3>
 <%= group.name %>
 <%= link_to "Details", group_path(group) %>
 <% end %> 
-
-
-<br>
-<% @groups.each do |group| %>
-<%= group.name %>
-<% end %>
-<br>
+</div>
 
 <% @bills.each do |bill| %>
 <% bill.each do |b| %>
 <%= b.name %>:<%= b.amount %> <br>
 <%end %>
 <%end %>
-<br>
-<p>bill_types for gruop: </p>
-<% @bill_types.each do |b_type| %>
-<% b_type.each do |b_t| %>
-<%= b_t.name %> <br>
-<% end %>
-<% end %>
