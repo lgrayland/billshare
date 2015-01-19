@@ -2,15 +2,18 @@
 <%= link_to "Edit profile", edit_user_path(@user) %>
 
 <div>
-<% @user.groups.each do |group| %>
-<h3>Your groups: </h3>
-<%= group.name %>
-<%= link_to "Details", group_path(group) %>
-<% end %> 
+  <% @user.groups.each do |group| %>
+  <h3>Your groups:</h3>
+  <%= group.name %>
+  <%= link_to "Details", group_path(group) %>
+  <% end %> 
 </div>
 
-<% @bills.each do |bill| %>
-<% bill.each do |b| %>
-<%= b.name %>:<%= b.amount %> <br>
-<%end %>
-<%end %>
+<div>
+  <% @bills.each do |bill| %>
+  <h3>Your bills:</h3>
+  <% bill.each do |b| %>
+  <%= b.name %>:<%= b.amount %> <br>
+  <%end %>
+  <%end %>
+</div>
