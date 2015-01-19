@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   end
 
   unauthenticated do
-    root to: "home#index"
+    root to: 'pages#home'
   end
-
+ 
+  get '/home' => 'pages#home'
   get '/home' => 'pages#home'
   get '/about' => 'pages#about'
   
