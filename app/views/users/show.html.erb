@@ -5,7 +5,7 @@
 <% @user.groups.each do |group| %>
   <%= group.name %> : <%= group.description %> 
   <%= link_to "Details", group_path(group) %>
-  <%= link_to "Edit", edit_group_path %> <br>
+  <%= link_to "Edit", edit_group_path(group) %> <br>
 <% end %>
 <br>
   <%= link_to "Create new group", new_group_path %>
