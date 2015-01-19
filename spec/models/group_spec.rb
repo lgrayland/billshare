@@ -3,10 +3,6 @@ require 'rails_helper'
 
 describe Group do
   it "calculates total bills price in the group" do
-    # party_drinks = Bill.new(name: "Drinks", amount: 4, deadline: "2015.2.15")
-    # party_fruits = Bill.new(name: "Fruits", amount: 2, deadline: "2015.2.15")
-    # party_girls = Bill.new(name: "Girls", amount: 12, deadline: "2015.2.15")
-    # party_music = Bill.new(name: "Music", amount: 8, deadline: "2015.2.15")
 
     party_drinks = create(:bill)
     party_fruits = create(:bill)
@@ -25,6 +21,8 @@ describe Group do
     expect(party.total).to eq(900)
 
   end
+
+  
 
   # it "reises exception if group no users in it " do 
   #   expect( -> { create(:group) } ).to raise_exception

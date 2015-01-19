@@ -10,6 +10,7 @@
       <% User.user_bills(@user.first_name, group.name).each do |bill| %>
         <%= bill.name %>: <%= bill.amount %> <br>
       <% end %>
+      <%= group.total %>
       <h3>Your part</h3>
       <% User.user_proportions(@user.id, group.id).each do |proportion| %>
         <%# if bill.name == proportion.bill_type.name  %>
@@ -41,3 +42,5 @@
     <%= b_t.name %> <br>
   <% end %>
 <% end %>
+
+

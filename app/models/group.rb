@@ -2,6 +2,7 @@ class Group < ActiveRecord::Base
 
   has_many :groupings
   has_many :users, through: :groupings
+  has_many :proportions, through: :groupings  
   has_many :bills
   has_many :bill_types
 
@@ -13,6 +14,11 @@ class Group < ActiveRecord::Base
 
   def calculate_total
     write_attribute :total, bills.map(&:amount).inject(:+)  
+  end
+
+  def calculate_percentage
+
+    
   end
 
 end
