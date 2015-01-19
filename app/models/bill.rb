@@ -1,5 +1,7 @@
 class Bill < ActiveRecord::Base
 
+  # validates :group_id, presence: true
+
   belongs_to :bill_type
   belongs_to :group
   
@@ -12,3 +14,6 @@ class Bill < ActiveRecord::Base
   end
   
 end
+
+# u1.proportions.joins(:grouping).where(groupings: {group_id: 18}, bill_type_id: 35).first
+#u1.groupings.first.proportions.first.bill_type.bills

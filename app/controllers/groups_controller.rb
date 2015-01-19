@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+
     @bills = Bill.where(group_id: @group.id)
   end
 
@@ -27,6 +28,7 @@ class GroupsController < ApplicationController
     @group.update(group_params)
     redirect_to(@group)
   end
+  
 
   private
   def set_resources
