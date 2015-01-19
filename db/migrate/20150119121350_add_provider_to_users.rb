@@ -1,4 +1,4 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class AddProviderToUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       ## Database authenticatable
