@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    
-
 
     #find group where user
     # @groups = []

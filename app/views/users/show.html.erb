@@ -1,11 +1,10 @@
 <h3>Hello <%= @user.first_name%></h3>
 
-
-
 <%= link_to "Edit profile", edit_user_path(@user) %>
 <br>
 <% @user.groups.each do |group| %>
-  <%= group.name %> : <%= group.description %> <br>
+  <%= group.name %> : <%= group.description %> 
+  <%= link_to "Details", group_path(group) %> <br>
 <% end %>
+<br>
   <%= link_to "Create new group", new_group_path %>
-</div>
