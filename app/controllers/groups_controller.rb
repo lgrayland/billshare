@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_resources, only: [:show, :edit]
+  before_action :set_resources, only: [:show, :new, :create]
 
   def new
     @group = Group.new
@@ -18,5 +18,9 @@ class GroupsController < ApplicationController
   private
   def set_resources
     @user = current_user
+  end
+
+  def group_params
+    params.require(:group).permit(:name, :description)
   end
 end
