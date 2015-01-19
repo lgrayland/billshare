@@ -12,8 +12,12 @@ Rails.application.routes.draw do
   end
 
   unauthenticated do
-    root to: "home#index"
+    root to: 'pages#home'
   end
+ 
+  get '/home' => 'pages#home'
+  get '/about' => 'pages#about'
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

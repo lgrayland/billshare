@@ -16,9 +16,9 @@ class Group < ActiveRecord::Base
     write_attribute :total, bills.map(&:amount).inject(:+)  
   end
 
-  def calculate_percentage
+  # def calculate_percentage
 
     
-  end
+  # end
 
 end
