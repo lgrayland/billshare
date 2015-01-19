@@ -34,11 +34,12 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+
 end
 
 # Use ActiveModel has_secure_password
