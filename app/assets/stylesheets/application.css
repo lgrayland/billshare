@@ -13,18 +13,26 @@
  *= require_tree .
  *= require_self
  */
+ .background {
+  
+
+ }
 
  .floatright {
+
      float:right;
  }
-ul {
-    padding: 1em 0;
+
+.login {
+background: black;
+    padding: 2em;
 }
 
+
 li {
+  text-decoration: none;
   list-style: none;
   font-family: "Arial";
-  text-decoration: none;
     display: inline;
      padding: 0 1em;
     
