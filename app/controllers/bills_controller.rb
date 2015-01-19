@@ -14,6 +14,7 @@ class BillsController < ApplicationController
 
   # GET /bills/new
   def new
+    @group = Group.find(params[:group_id])
     @bill = Bill.new
   end
 
@@ -25,16 +26,20 @@ class BillsController < ApplicationController
   # POST /bills.json
   def create
     @bill = Bill.new(bill_params)
+    @bill.save
 
-    respond_to do |format|
-      if @bill.save
-        format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
-        format.json { render :show, status: :created, location: @bill }
-      else
-        format.html { render :new }
-        format.json { render json: @bill.errors, status: :unprocessable_entity }
-      end
-    end
+    @group = Group.find(params[:group_id])
+    redirect_to(@group)
+
+    # respond_to do |format|
+    #   if @bill.save
+    #     format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
+    #     format.json { render :show, status: :created, location: @bill }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @bill.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /bills/1
@@ -69,6 +74,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params[:bill]
+      params.require(:bill).permit(:name, :amount, :deadline)
     end
 end

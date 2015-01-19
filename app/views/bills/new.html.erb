@@ -1,0 +1,12 @@
+<%= form_for [@group, @bill] do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br />
+  <%= f.label :amount %>:
+  <%= f.number_field :amount %><br />
+  <%= f.label :deadline %>:
+  <%= f.date_field :deadline %><br />
+  
+  
+
+  <%= f.submit %>
+<% end %>
