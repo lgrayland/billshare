@@ -1,6 +1,18 @@
 <h3><%= @group.name %></h3>
 <p><%= @group.description %></p>
 
+<h2>People in the group</h2>
+<ul>
+  <% @group.users.each do |user| %>
+    <li>
+      <%= user.first_name %>      
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'add person', new_group_grouping_path(@group) %>
+
+
 <!-- <h3>Group Bills:</h3>
 <%# User.user_bills(@user.first_name, @group.name).each do |bill| %>
 <%#= bill.name %>: <%#= bill.amount %> <br>

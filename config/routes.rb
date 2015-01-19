@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
-  resources :users, :groups
-
+  resources :users
+  resources :groups do
+    resources :groupings
+  end
+  
   authenticated :user do
     root to: "users#show", as: :authenticated_root
   end
