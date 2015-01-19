@@ -20,4 +20,6 @@
 <% end %>
 
 <h3>Total</h3>
-<% @group.calculate_total %>
+<%= @group.calculate_total %> <br>
+
+<%= link_to 'add new bill', new_group_bill_path(@group) %>

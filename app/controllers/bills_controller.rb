@@ -25,10 +25,11 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    @bill = Bill.new(bill_params)
+    @group = Group.find(params[:group_id])
+    @bill = @group.bills.new(bill_params)
     @bill.save
 
-    @group = Group.find(params[:group_id])
+    
     redirect_to(@group)
 
     # respond_to do |format|
@@ -74,6 +75,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :amount, :deadline)
+      params.require(:bill).permit(:name, :amount, :deadline, :group_id)
     end
 end
