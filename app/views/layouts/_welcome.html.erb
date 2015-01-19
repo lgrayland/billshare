@@ -9,6 +9,24 @@
       <li> <%= link_to "Sign In", new_user_session_path %> </li>
       <li> <%= link_to "Register", new_user_registration_path %> </li>
       <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+
+    <div id="friends">
+      <p> <%= link_to "Invite your Facebook Friends", "#", :id => "invite_fb_friends" %> </p>
+      <script src="http://connect.facebook.net/en_US/all.js"></script>
+      <script>
+      $(function(){
+        $("#invite_fb_friends").click(function(){
+          FB.init({
+            appId: '<%= ENV['FBAccessKeyId'] %>', 
+            cookie: false,
+            status: true
+         });
+          FB.ui({ method: 'apprequests', message: '<%= current_user %> thinks you are really awesome'})
+        });
+      });
+
+      </script>
+      </div>
     </ul>
     </div>
     <% end %>
