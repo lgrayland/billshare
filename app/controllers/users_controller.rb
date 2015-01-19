@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    
 
     #find group where user
     @groups = []
@@ -44,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:id, :first_name, :last_name)
+    params.require(:user).permit(:id, :first_name, :last_name, :email)
   end
 
 end

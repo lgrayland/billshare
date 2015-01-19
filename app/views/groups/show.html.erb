@@ -1,1 +1,15 @@
 <h3><%= @group.name %></h3>
+<p><%= @group.description %></p>
+
+<h3>Group Bills:</h3>
+<% User.user_bills(@user.first_name, @group.name).each do |bill| %>
+<%= bill.name %>: <%= bill.amount %> <br>
+<% end %>
+<h3>Your part</h3>
+<% User.user_proportions(@user.id, @group.id).each do |proportion| %>
+<%# if bill.name == proportion.bill_type.name  %>
+<%= proportion.percentage %> % <br>
+<%# end %>
+<%end %>
+<p>--------------------------</p>
+<br>
