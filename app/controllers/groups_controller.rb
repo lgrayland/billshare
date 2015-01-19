@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
+    @group.users.push(@user)
     @group.save
     redirect_to(@group)
   end
