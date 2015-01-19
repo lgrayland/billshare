@@ -4,7 +4,7 @@
   <tr>
     
     <% @user.groups.each do |group| %>
-    <h3>Your group: </h3>
+    <h3>Your groups: </h3>
         <%= group.name %>
         <%= link_to "Details", group_path(group) %>
     </td>
