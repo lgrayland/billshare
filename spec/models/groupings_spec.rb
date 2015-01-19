@@ -18,7 +18,7 @@ describe Grouping do
     # u3bt = create(:bill_type)
 
     u1p = create(:proportion)
-    u2p = create(:proportion)
+    u2p = create(:proportion
     u3p = create(:proportion)
 
     flat.users.push(u1, u2, u3)
