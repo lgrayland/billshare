@@ -10,4 +10,10 @@ describe User do
     
      expect(user.errors[:email]).not_to eq(be_empty) 
   end
+
+  it "testing proporions" do
+    
+    
+  end
+
 end
