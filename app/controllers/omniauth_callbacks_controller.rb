@@ -1,4 +1,5 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  
   def facebook
     user = User.from_omniauth(request.env["omniauth.auth"])
     if user.persisted?
@@ -10,4 +11,5 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+  
 end
