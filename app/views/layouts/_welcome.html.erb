@@ -2,7 +2,8 @@
   <nav>
     <ul class='login'>
       <div class="floatright">
-      <li><%= link_to 'Home', root_path %></li>
+      <li><a><%= link_to 'Home', root_path %></a></li>
+      <li><%= link_to 'About Us', about_path %></li>
       <% if current_user %>
       <li><%= link_to current_user.email, user_path(current_user) %></li>
       <li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
