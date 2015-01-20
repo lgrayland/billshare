@@ -13,8 +13,10 @@ class GroupsController < ApplicationController
   end
 
   def show
+
     @group = Group.find(params[:id])
     @bills = Bill.where(group_id: @group.id)
+    # @bill_type = BillType.find_by(group_id: @group.id)
   end
 
   def edit
