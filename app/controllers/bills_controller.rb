@@ -32,20 +32,15 @@ class BillsController < ApplicationController
   def create
     @group = Group.find(params[:group_id])
     @bill = @group.bills.new(bill_params)
-    @bill.save
-
-    
-    redirect_to(@group)
-
-    # respond_to do |format|
-    #   if @bill.save
-    #     format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
-    #     format.json { render :show, status: :created, location: @bill }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @bill.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      if @bill.save
+        format.html { redirect_to @group, notice: 'Bill was successfully created.' }
+        format.json { render :show, status: :created, location: @bill }
+      else
+        format.html { render :new }
+        format.json { render json: @bill.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /bills/1

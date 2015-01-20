@@ -1,0 +1,7 @@
+<%= f.label :name %>:
+<%= f.text_field :name %><br />
+<%= f.collection_select(:bill_type_id, @bill_types, :id, :name ) %>
+<%= f.label :amount %>:
+<%= f.number_field :amount %><br />
+<%= f.label :deadline %>:
+<%= f.date_field :deadline %><br />
