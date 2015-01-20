@@ -5,7 +5,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   header {
-    background: #000;
+    background: black;
     height: 60px;
     line-height: 60px;
     
@@ -13,7 +13,6 @@ body {
       max-width: 960px;
       height: 60px;
       line-height: 60px;
-      //background: #eee;
       margin: 0 auto;
 
       ul {
@@ -47,9 +46,51 @@ body {
 
 @media screen and (max-width:960px) {
 
-  .site-nav {
+  .site-nav ul li {
     display: none;
   }
 
+ .nav-icon {
+
+   position: relative;
+   padding-right: 1.25em;
+   float: right;
+
+ }
+ .nav-icon:before {
+   position: absolute;
+   top: 0.25em;
+   left: 0;
+   width: 3em;
+   height: 0.125em;
+ }
 }
+
+
+
+  @media screen and (min-width:961px) {
+
+    .nav-icon {
+      display: none;
+    }
+
+}
+
+ /* .nav-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    text-decoration: none;
+  }
+
+  .nav-icon:before { 
+    content:'\2630'; 
+    color: white;
+    font-size: 2em;
+  }*/
+
+
+ 
+
 

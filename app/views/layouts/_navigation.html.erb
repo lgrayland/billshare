@@ -1,3 +1,4 @@
+<body>
 <header>
   <nav class="site-nav">
     <ul>
@@ -14,12 +15,19 @@
         <li><%= link_to "Log in", new_user_session_path %></li>
         <li><%= link_to image_tag("fb_login.png"), user_omniauth_authorize_path(:facebook) %></li>
         <li><%#= link_to image_tag("fb_invite.png"), "#", :id => "invite_fb_friends" %></li>
-        <li><a href="#menu">
-          &#9776;
-        </a><li>
       <% end %>
     </ul>
-    </ul>
-    <a class="nav-icon" href="#"></a>
+    <a class="nav-icon"><%= image_tag("billshare_hamburger.png")%></a>
   </nav>
 </header>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+<script>
+  $(document).ready(function(){
+    $('.nav-icon').on('click', function(e){
+      e.preventDefault();
+      $('.site-nav ul').slideToggle();
+    });
+  });
+</script>
+</body>
