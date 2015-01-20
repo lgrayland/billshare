@@ -27,7 +27,7 @@
       <th>Total Outstanding</th>
       <!-- HACK! -->
       <% @group.users.each do |user| %>
-      <th>Paid by: <%= user.first_name.first %> <%= user.last_name %></th>
+      <th>Paid by: <%= user.first_name.first %>. <%= user.last_name %></th>
       <% end %>
     </tr>
 
