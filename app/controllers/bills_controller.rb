@@ -10,16 +10,21 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+    @bill = Bill.find(params[:id])
   end
 
   # GET /bills/new
   def new
     @group = Group.find(params[:group_id])
     @bill = Bill.new
+    @bill_types = BillType.where(group_id: @group.id)
   end
 
   # GET /bills/1/edit
   def edit
+    @group = Group.find(params[:group_id])
+    @bill_types = BillType.where(group_id: @group.id)
+    @bill = Bill.find(params[:id])
   end
 
   # POST /bills
@@ -46,9 +51,11 @@ class BillsController < ApplicationController
   # PATCH/PUT /bills/1
   # PATCH/PUT /bills/1.json
   def update
+    @group = Group.find(params[:group_id])
+    @bill = Bill.find(params[:id])
     respond_to do |format|
       if @bill.update(bill_params)
-        format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
+        format.html { redirect_to group_bill_path(@group.id, @bill.id), notice: 'Bill was successfully updated.' }
         format.json { render :show, status: :ok, location: @bill }
       else
         format.html { render :edit }
@@ -75,6 +82,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :amount, :deadline, :group_id)
+      params.require(:bill).permit(:name, :amount, :deadline, :group_id, :bill_type_id)
     end
-end
+  end
