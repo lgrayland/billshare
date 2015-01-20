@@ -14,10 +14,12 @@ body {
       height: 60px;
       line-height: 60px;
       margin: 0 auto;
+      float: right;
 
       ul {
         font-family: "Arial";
         text-align: right;
+        display: inline-block;
         li {
           display: inline-block;
           padding: 0 10px;
@@ -69,11 +71,16 @@ body {
     header {
       nav {
         ul {
+          margin-top: 60px;
+          position: absolute;
+          right: 0;
           li {
 
             display: none;
+            background: black;
             text-align: right;
             margin-right: 20px;
+
           }
         }
         #nav-icon {
