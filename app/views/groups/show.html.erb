@@ -30,17 +30,17 @@
       <th>Paid by: <%= user.first_name.first %>. <%= user.last_name %></th>
       <% end %>
     </tr>
-
-    <thead>
-      <tbody>
-        <% if @bills %>
-        <% @bills.each do |bill| %>
-        <tr>
-          <td><%= bill.deadline %></td>
-          <td><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></td>
-          <td><%= bill.bill_type.name %></td>
-          <td>original amount</td>
-          <td>&pound;<%= bill.amount %></td>
+  </thead>
+  
+  <tbody>
+    <% if @bills %>
+    <% @bills.each do |bill| %>
+    <tr>
+      <td><%= bill.deadline %></td>
+      <td><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></td>
+      <td><%= bill.bill_type.name %></td>
+      <td>original amount</td>
+      <td>&pound;<%= bill.amount %></td>
 
       <%#= bill.due_for_user(current_user) %>
       <% @group.users.each do |user| %>
