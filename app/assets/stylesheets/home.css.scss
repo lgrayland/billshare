@@ -17,6 +17,7 @@ body {
       margin: 0 auto;
 
       ul {
+        font-family: "Arial";
         text-align: right;
         li {
           display: inline-block;
@@ -44,36 +45,11 @@ body {
 
 
 
+@media screen and (max-width:960px) {
 
+  .site-nav {
+    display: none;
+  }
 
-
-
-
-//  body {
-//  background-image: url("billshare_background.jpg");
-//  background-size: cover;
-//  }
-
-//  .background {
-//   width: cover;
-//  }
-
-//  .floatright {
-//   background-color: black;
-//   float:right;
-//   padding-top: 15px;
-//   padding-bottom: 10px;
-
-//  }
-
-
-// li {
-//   text-decoration: none;
-//   list-style: none;
-//   font-family: "Arial";
-//   display: inline;
-//   padding: 0 1em;
-//   color: white;
-    
-// }
+}
 

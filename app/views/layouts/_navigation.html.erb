@@ -1,5 +1,5 @@
 <header>
-  <nav>
+  <nav class="site-nav">
     <ul>
       <li><%= link_to 'Home', root_path %></li>
       <li><%= link_to 'About Us', about_path %></li>
@@ -13,11 +13,13 @@
         <li><%= link_to "Register", new_user_registration_path %></li>
         <li><%= link_to "Log in", new_user_session_path %></li>
         <li><%= link_to image_tag("fb_login.png"), user_omniauth_authorize_path(:facebook) %></li>
-        <li><%= link_to image_tag("fb_invite.png"), "#", :id => "invite_fb_friends" %></li>
+        <li><%#= link_to image_tag("fb_invite.png"), "#", :id => "invite_fb_friends" %></li>
         <li><a href="#menu">
           &#9776;
         </a><li>
       <% end %>
     </ul>
+    </ul>
+    <a class="nav-icon" href="#"></a>
   </nav>
 </header>

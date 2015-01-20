@@ -18,7 +18,6 @@
   </footer>
   <script>
   $(function(){
-    if ($("#invite_fb_friends").length) {
       $("#invite_fb_friends").click(function(){
         FB.init({
           appId: '<%= ENV['FBAccessKeyId'] %>', 
@@ -27,7 +26,6 @@
         });
         FB.ui({ method: 'apprequests', message: '<%= current_user %> thinks you are really awesome'})
       });
-    }
   });
   
   </script>
