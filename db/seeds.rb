@@ -13,32 +13,32 @@ Bill.delete_all
 BillType.delete_all
 Proportion.delete_all
 
-luke = User.create!(email: "luke@luke.com", password: "password", first_name: "Luke", last_name: "Grayland")
-andres = User.create!(email: "andres@andres.com", password: "password", first_name: "Andres", last_name: "Idontknow")
-neil = User.create!(email: "neil@neil.com", password: "password", first_name: "Neil", last_name: "Crosbourne")
+# luke = User.create!(email: "luke@luke.com", password: "password", first_name: "Luke", last_name: "Grayland")
+# andres = User.create!(email: "andres@andres.com", password: "password", first_name: "Andres", last_name: "Idontknow")
+# neil = User.create!(email: "neil@neil.com", password: "password", first_name: "Neil", last_name: "Crosbourne")
 
-gr1 = Group.create!(name: "House share", description: "A group for a house share of 3 people")
-# gr2 = Group.create!(name: "House share 2", description: "A group for a flat share of 2 people")
+# gr1 = Group.create!(name: "House share", description: "A group for a house share of 3 people")
+# # gr2 = Group.create!(name: "House share 2", description: "A group for a flat share of 2 people")
 
-gr1.users.push(luke, andres, neil)
+# gr1.users.push(luke, andres, neil)
 
-inet = Bill.create!(name: "Internet", amount: 40, deadline: "2015.2.15")
-inet_type = BillType.create!(name: "internet_bt")
-inet_pr1 = Proportion.create!(percentage: 50)
-inet_pr2 = Proportion.create!(percentage: 50)
+# inet = Bill.create!(name: "Internet", amount: 40, deadline: "2015.2.15")
+# inet_type = BillType.create!(name: "internet_bt")
+# inet_pr1 = Proportion.create!(percentage: 50)
+# inet_pr2 = Proportion.create!(percentage: 50)
 
-inet_type.bills.push(inet)
-inet_type.proportions.push(inet_pr1, inet_pr2)
+# inet_type.bills.push(inet)
+# inet_type.proportions.push(inet_pr1, inet_pr2)
 
-tv = Bill.create!(name: "TV", amount: 24, deadline: "2015.2.15")
-tv_type = BillType.create!(name: "tv_bt")
-tv_pr1 = Proportion.create!(percentage: 25)
-tv_pr2 = Proportion.create!(percentage: 25)
-tv_pr3 = Proportion.create!(percentage: 25)
-tv_pr4 = Proportion.create!(percentage: 25)
+# tv = Bill.create!(name: "TV", amount: 24, deadline: "2015.2.15")
+# tv_type = BillType.create!(name: "tv_bt")
+# tv_pr1 = Proportion.create!(percentage: 25)
+# tv_pr2 = Proportion.create!(percentage: 25)
+# tv_pr3 = Proportion.create!(percentage: 25)
+# tv_pr4 = Proportion.create!(percentage: 25)
 
-tv_type.bills.push(tv)
-tv_type.proportions.push(tv_pr1, tv_pr2, tv_pr3, tv_pr4)
+# tv_type.bills.push(tv)
+# tv_type.proportions.push(tv_pr1, tv_pr2, tv_pr3, tv_pr4)
 
 #########################
 #### CREATE PARTY #######

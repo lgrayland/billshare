@@ -1,6 +1,6 @@
 class BillType < ActiveRecord::Base
 
-  validates :group_id, presence: true
+  # validates :group_id, presence: true
   
   has_many :bills
   has_many :proportions
