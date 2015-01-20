@@ -13,26 +13,30 @@
  *= require_tree .
  *= require_self
  */
- .background {
+body {
+  background-image: url("billshare_background.jpg");
+  background-size: cover;
+}
 
- }
+.floatright {
 
- .floatright {
+  float:right;
+}
 
-     float:right;
- }
+ .login {
+  background: black;
+  padding: 2em;
 
-.login {
-background: black;
-    padding: 2em;
 }
 
 
 li {
   text-decoration: none;
-  list-style: none;
+  list-style-type: none;
   font-family: "Arial";
-    display: inline;
-     padding: 0 1em;
-    
+  display: inline;
+  padding: 0 1em;
+  color: white;
+
+
 }
