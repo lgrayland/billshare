@@ -1,6 +1,8 @@
-<h3>Hello <%= @user.first_name%></h3>
+<div>
+  <h3>Hello <%= @user.first_name%></h3>
+</div>
 
-
+<div>
 <%= link_to "Edit profile", edit_user_path(@user) %>
 <br>
 <% @user.groups.each do |group| %>
@@ -10,3 +12,4 @@
 <% end %>
 <br>
   <%= link_to "Create new group", new_group_path %>
+</div>
