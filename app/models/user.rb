@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :groupings
   has_many :groups, through: :groupings
-  has_many :proportions, through: :groupings
+  has_many :proportions
 
   # scope :user_bills, -> (user_first_name, group_name)   { find_by(first_name: user_first_name).groups.find_by(name: group_name).bills }
   

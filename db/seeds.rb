@@ -72,22 +72,22 @@ u3.groups.find(party.id).bill_types.push(u3_party_bill_type)
 
 ## Create percentage for users
   #u1
-u1_party_proportion = Proportion.create!(percentage: 33)
-  #in both relations groupings and bill_types
-u1.groupings.last.proportions.push(u1_party_proportion)
-u1.groups.find(party.id).bill_types.find(u1_party_bill_type.id).proportions.push(u1_party_proportion)
+# u1_party_proportion = Proportion.create!(percentage: 33)
+#   #in both relations groupings and bill_types
+# u1.groupings.last.proportions.push(u1_party_proportion)
+# u1.groups.find(party.id).bill_types.find(u1_party_bill_type.id).proportions.push(u1_party_proportion)
 
-#u2
-u2_party_proportion = Proportion.create!(percentage: 28)
-  #in both relations groupings and bill_types
-u2.groupings.last.proportions.push(u2_party_proportion)
-u2.groups.find(party.id).bill_types.find(u2_party_bill_type.id).proportions.push(u2_party_proportion)
+# #u2
+# u2_party_proportion = Proportion.create!(percentage: 28)
+#   #in both relations groupings and bill_types
+# u2.groupings.last.proportions.push(u2_party_proportion)
+# u2.groups.find(party.id).bill_types.find(u2_party_bill_type.id).proportions.push(u2_party_proportion)
 
-#u3
-u3_party_proportion = Proportion.create!(percentage: 15)
-  #in both relations groupings and bill_types
-u3.groupings.last.proportions.push(u3_party_proportion)
-u3.groups.find(party.id).bill_types.find(u3_party_bill_type.id).proportions.push(u3_party_proportion)
+# #u3
+# u3_party_proportion = Proportion.create!(percentage: 15)
+#   #in both relations groupings and bill_types
+# u3.groupings.last.proportions.push(u3_party_proportion)
+# u3.groups.find(party.id).bill_types.find(u3_party_bill_type.id).proportions.push(u3_party_proportion)
 
 
 

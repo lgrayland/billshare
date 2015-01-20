@@ -1,22 +1,34 @@
 class ProportionsController < ApplicationController
+  before_action :set_group
+  before_action :set_bill
+  before_action :set_bill_type
 
   def new
-    @group = Group.find(params[:group_id])
-    @bill_type = BillType.find(params[:bill_type_id])
     @proportion = Proportion.new    
   end
 
   def create
-    @group = Group.find(params[:group_id])
-    @proportion = Proportion.new(proportion_params)
-    @proportion.grouping_id = Grouping.find_by(group_id: params[:group_id]).id
-    @proportion.bill_type_id = params[:bill_type_id]
+    @proportion = current_user.proportions.new(proportion_params)
+    @proportion.bill = @bill
+    @proportion.bill_type = @bill_type
     @proportion.save
     redirect_to(@group)
   end
 
   private
+  def set_group
+    @group = Group.find(params[:group_id])
+  end
+
+  def set_bill
+    @bill = Bill.find(params[:bill_id])
+  end
+
+  def set_bill_type
+    @bill_type = @bill.bill_type
+  end
+
   def proportion_params
-    params.require(:proportion).permit(:percentage, :grouping_id, :bill_type_id)
+    params.require(:proportion).permit(:amount, :bill_id, :user_id, :bill_type_id)
   end
 end

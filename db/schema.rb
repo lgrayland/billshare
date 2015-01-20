@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119121350) do
+ActiveRecord::Schema.define(version: 20150120125100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,15 +52,17 @@ ActiveRecord::Schema.define(version: 20150119121350) do
   end
 
   create_table "proportions", force: true do |t|
-    t.decimal  "percentage",   precision: 2, scale: 0
-    t.integer  "grouping_id"
     t.integer  "bill_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bill_id"
+    t.integer  "user_id"
+    t.decimal  "amount"
   end
 
+  add_index "proportions", ["bill_id"], name: "index_proportions_on_bill_id", using: :btree
   add_index "proportions", ["bill_type_id"], name: "index_proportions_on_bill_type_id", using: :btree
-  add_index "proportions", ["grouping_id"], name: "index_proportions_on_grouping_id", using: :btree
+  add_index "proportions", ["user_id"], name: "index_proportions_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
