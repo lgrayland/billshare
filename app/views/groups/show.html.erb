@@ -18,13 +18,62 @@
 <h2>Bills for group</h2>
 <% if @bills %>
 <% @bills.each do |bill| %>
-  <%= bill.name %> <%= bill.amount %> 
+  <%= bill.name %> <%= bill.amount %> : <%= bill.due_for_user(current_user) %> 
+  <%= link_to 'Add proportion', new_group_bill_type_proportion_path(@group.id, bill.bill_type_id) %>
   <%= link_to 'Details', group_bill_path(@group.id, bill.id) %><br>
   <% end %>
 <% end %>
 
+<br>
+<h2>Bills for group</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Deadline</th>
+      <th>Bill name</th>
+      <th>Bill Type</th>
+      <th>Total Amount</th>
+      <th>Total Paid</th>
+      <!-- HACK! -->
+      <% @group.users.each do |user| %>
+        <th>Paid by <%= user.first_name %></th>
+      <% end %>
+    </tr>
+  <thead>
+  <tbody>
+  <% if @bills %>
+    <% @bills.each do |bill| %>
+    <tr>
+      <td><%= bill.deadline %></td>
+      <td><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></td>
+      <td><%= bill.bill_type.name %></td>
+      <td>&pound;<%= bill.amount %></td>
+      <%#= bill.due_for_user(current_user) %>
+      <td>0</td>
+      <% @group.users.each do |user| %>
+      <!-- HACK! -->
+        <td>0</td>
+      <% end %>
+    </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<ul>
+  <li>1. <%= link_to 'new bill type', new_group_bill_type_path(@group) %></li>
+  <li>2. <%= link_to 'add new bill', new_group_bill_path(@group) %></li>
+  <li>3. <a href="#">Make Proportional Payment</a></li>
+</ul>
+<h2>Payments / Proportions</h2>
+
+
+
+<br>
+<br>
+<br>
+<br>
 <h3>Total</h3>
 <%= @group.calculate_total %> <br>
 
-<%= link_to 'add new bill', new_group_bill_path(@group) %>
-<%= link_to 'new bill type', new_group_bill_type_path(@group) %>
