@@ -56,6 +56,7 @@ party_girls = Bill.create!(name: "Girls", amount: 1230, deadline: "2015.2.15")
 party_music = Bill.create!(name: "Music", amount: 880, deadline: "2015.2.15")
 
 party_type = BillType.create!(name: "party")
+party.bill_types.push(party_type)
 party.bills.push(party_drinks, party_fruits, party_girls, party_music)
 party_type.bills.push(party_drinks, party_fruits, party_girls, party_music)
 
