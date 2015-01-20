@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :groups do
-    resources :bills
-    resources :groupings
-    resources :bill_types do 
+    resources :bills do 
       resources :proportions
     end  
+    resources :groupings
+    resources :bill_types 
   end
   
   authenticated :user do

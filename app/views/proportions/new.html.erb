@@ -1,6 +1,10 @@
-<%= form_for [@group, @bill_type, @proportion] do |f| %>
-  <%= f.label :percentage %>:
-  <%= f.number_field :percentage %><br />
+<%= form_for [@group, @bill, @proportion] do |f| %>
+  
+  <%= @bill.name %><br />
+  <%= @bill_type.name %><br />
 
+  <%= f.label :amount %>:
+  <%= f.number_field :amount %><br />
+  
   <%= f.submit %>
 <% end %>
