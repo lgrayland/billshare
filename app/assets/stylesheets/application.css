@@ -70,3 +70,6 @@
   border-collapse: collapse;
   border-spacing: 0;
  }
+ .bill{
+  display: inline-block;
+ }
