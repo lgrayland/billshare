@@ -13,6 +13,10 @@ class Bill < ActiveRecord::Base
   #     0
   #   end
   # end
+
+  def total_amount
+    amount + proportions.map(&:amount).inject(:+).to_f
+  end
   
 end
 
