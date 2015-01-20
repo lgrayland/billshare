@@ -3,6 +3,7 @@ class ProportionsController < ApplicationController
   before_action :set_bill
   before_action :set_bill_type
 
+
   def new
     @proportion = Proportion.new    
   end
@@ -12,6 +13,8 @@ class ProportionsController < ApplicationController
     @proportion.bill = @bill
     @proportion.bill_type = @bill_type
     @proportion.save
+    calculation
+    # raise
     redirect_to(@group)
   end
 
@@ -26,6 +29,11 @@ class ProportionsController < ApplicationController
 
   def set_bill_type
     @bill_type = @bill.bill_type
+  end
+
+  def calculation
+    @bill.amount -= @proportion.amount
+    @bill.save
   end
 
   def proportion_params
