@@ -1,3 +1,27 @@
 // Place all the styles related to the Proportions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login {
+  background-color: rgba(255, 255, 255, 0.3);
+  background-size: 100px;
+  margin-top: 50px;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+
+}
+
+input{
+  border-radius: 10px;
+  background: white;
+  background-size: 50px;
+  color: red;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 10px
+}
