@@ -1,6 +1,7 @@
 <body>
 <header>
-  <nav class="site-nav">
+  <nav>
+    <a href="#" id="nav-icon">&#9776;</a>
     <ul>
       <li><%= link_to 'Home', root_path %></li>
       <li><%= link_to 'About Us', about_path %></li>
@@ -9,7 +10,6 @@
         <li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
         <li><%= link_to "Create Group", new_group_path %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to image_tag("fb_logout.png"), destroy_user_session_path, method: :delete  %></li>
       <% else %>
         <li><%= link_to "Register", new_user_registration_path %></li>
         <li><%= link_to "Log in", new_user_session_path %></li>
@@ -17,17 +17,10 @@
         <li><%#= link_to image_tag("fb_invite.png"), "#", :id => "invite_fb_friends" %></li>
       <% end %>
     </ul>
-    <a class="nav-icon"><%= image_tag("billshare_hamburger.png")%></a>
+   
   </nav>
 </header>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
-<script>
-  $(document).ready(function(){
-    $('.nav-icon').on('click', function(e){
-      e.preventDefault();
-      $('.site-nav ul').slideToggle();
-    });
-  });
-</script>
+
 </body>
