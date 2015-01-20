@@ -15,9 +15,15 @@
 <br>
 
 <h2>Bills for group</h2>
+<% if @bills %>
 <% @bills.each do |bill| %>
-  <%= bill.name %> <%= bill.amount %> <br>
+  <%= bill.name %> <%= bill.amount %> 
+  <%= link_to 'Details', group_bill_path(@group.id, bill.id) %><br>
+  <% end %>
 <% end %>
 
 <h3>Total</h3>
-<% @group.calculate_total %>
+<%= @group.calculate_total %> <br>
+
+<%= link_to 'add new bill', new_group_bill_path(@group) %>
+<%= link_to 'new bill type', new_group_bill_type_path(@group) %>
