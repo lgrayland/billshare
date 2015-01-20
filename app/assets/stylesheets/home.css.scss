@@ -1,28 +1,79 @@
- body {
- background-image: url("billshare_background.jpg");
- background-size: cover;
- }
-
- .background {
-  width: cover;
- }
-
- .floatright {
-  background-color: black;
-  float:right;
-  padding-top: 15px;
-  padding-bottom: 10px;
-
- }
-
-
-li {
-  text-decoration: none;
-  list-style: none;
-  font-family: "Arial";
-  display: inline;
-  padding: 0 1em;
-  color: white;
+body {
+  background: url("billshare_background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  header {
+    background: #000;
+    height: 60px;
+    line-height: 60px;
     
+    nav {
+      max-width: 960px;
+      height: 60px;
+      line-height: 60px;
+      //background: #eee;
+      margin: 0 auto;
+
+      ul {
+        text-align: right;
+        li {
+          display: inline-block;
+          padding: 0 10px;
+          a {
+            text-decoration: none;
+            color: #fff;
+          }
+        }
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  footer {
+
+  }
 }
+
+
+
+
+
+
+
+
+//  body {
+//  background-image: url("billshare_background.jpg");
+//  background-size: cover;
+//  }
+
+//  .background {
+//   width: cover;
+//  }
+
+//  .floatright {
+//   background-color: black;
+//   float:right;
+//   padding-top: 15px;
+//   padding-bottom: 10px;
+
+//  }
+
+
+// li {
+//   text-decoration: none;
+//   list-style: none;
+//   font-family: "Arial";
+//   display: inline;
+//   padding: 0 1em;
+//   color: white;
+    
+// }
 

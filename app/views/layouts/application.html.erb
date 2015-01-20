@@ -4,16 +4,32 @@
   <title>Billshare</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-  <%= render 'layouts/welcome' %>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
-
+  <%= render 'layouts/navigation' %>
+  <main>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </main>
+  <footer>
+  </footer>
+  <script>
+  $(function(){
+    if ($("#invite_fb_friends").length) {
+      $("#invite_fb_friends").click(function(){
+        FB.init({
+          appId: '<%= ENV['FBAccessKeyId'] %>', 
+          cookie: false,
+          status: true
+        });
+        FB.ui({ method: 'apprequests', message: '<%= current_user %> thinks you are really awesome'})
+      });
+    }
+  });
+  
+  </script>
 </body>
 </html>

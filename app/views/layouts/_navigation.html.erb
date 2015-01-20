@@ -1,0 +1,23 @@
+<header>
+  <nav>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'About Us', about_path %></li>
+      <% if current_user %>
+        <li><%= link_to current_user.email, user_path(current_user) %></li>
+        <li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
+        <li><%= link_to "Create Group", new_group_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to image_tag("fb_logout.png"), destroy_user_session_path, method: :delete  %></li>
+      <% else %>
+        <li><%= link_to "Register", new_user_registration_path %></li>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+        <li><%= link_to image_tag("fb_login.png"), user_omniauth_authorize_path(:facebook) %></li>
+        <li><%= link_to image_tag("fb_invite.png"), "#", :id => "invite_fb_friends" %></li>
+        <li><a href="#menu">
+          &#9776;
+        </a><li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
