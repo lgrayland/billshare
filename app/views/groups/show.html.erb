@@ -39,7 +39,7 @@
           <td><%= bill.deadline %></td>
           <td><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></td>
           <td><%= bill.bill_type.name %></td>
-          <td>original amount</td>
+          <td><%= bill.try(:total_amount) %></td>
           <td>&pound;<%= bill.amount %></td>
 
       <%#= bill.due_for_user(current_user) %>
