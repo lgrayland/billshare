@@ -1,9 +1,16 @@
 <div>
   <%= f.label :name %>:
-  <%= f.text_field :name %><br />
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :bill_type_id %>
   <%= f.collection_select(:bill_type_id, @bill_types, :id, :name ) %>
+</div>
+<div>
   <%= f.label :amount %>:
-  <%= f.number_field :amount %><br />
+  <%= f.number_field :amount %>
+</div>
+<div>
   <%= f.label :deadline %>:
   <%= f.date_field :deadline %><br />
 </div>

@@ -70,7 +70,7 @@
   <% @group.bills.each do |bill| %>
   <% bill.proportions.each do |proportion| %>
   &pound;<%= proportion.amount.to_i %><br>
-  paid on: <%= proportion.created_at %><br>
+  paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
   <% end %>
   to: <%= bill.name %><br>
   <% end %>
