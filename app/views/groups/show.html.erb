@@ -5,6 +5,7 @@
 <ul>
   <% @group.users.each do |user| %>
     <li>
+      <%= @group.users.count %>
       <%= user.first_name %>      
     </li>
   <% end %>
@@ -15,6 +16,7 @@
 
 <br>
 <h2>Bills for group</h2>
+<br>
 <table>
   <thead>
     <tr>
@@ -39,10 +41,12 @@
       <td>&pound;<%= bill.amount %></td>
       <td><%= link_to 'Make Proportional Payment', new_group_bill_proportion_path(@group, bill) %></td>
       <%#= bill.due_for_user(current_user) %>
-      <td>0</td>
+      <td></td>
       <% @group.users.each do |user| %>
       <!-- HACK! -->
-        <td>0</td>
+        <td>
+          <%= bill.proportions.where(user_id: user.id).last.try(:amount) %>
+        </td>
       <% end %>
     </tr>
     <% end %>
@@ -54,14 +58,15 @@
 <ul>
   <li>1. <%= link_to 'new bill type', new_group_bill_type_path(@group) %></li>
   <li>2. <%= link_to 'add new bill', new_group_bill_path(@group) %></li>
-  <li>3.  </li>
+  <li> </li>
 </ul>
+<br><br>
 <h2>Payments / Proportions</h2>
 
 <table>
 <% @group.bills.each do |bill| %>
   <% bill.proportions.each do |proportion| %>
-    <tr><%= proportion.amount.to_i %></tr> <br>
+    <tr><%= proportion.amount %></tr> <br>
   <% end %>
 <% end %>
 </table>
