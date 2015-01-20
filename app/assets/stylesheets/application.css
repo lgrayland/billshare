@@ -46,6 +46,10 @@
  }
  body {
   line-height: 1;
+  color: white;
+ }
+ a {
+  color: yellow;
  }
  ol, ul {
   list-style: none;
