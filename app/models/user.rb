@@ -34,9 +34,4 @@ class User < ActiveRecord::Base
       user
     end
   end
-
-  def users_payments
-    
-  end
-
 end
