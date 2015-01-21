@@ -15,7 +15,7 @@
     <%= user.first_name.first.upcase %>. <%= user.last_name %>
   </div>
   <div>
-    needs to pay: <%= @bill.try(:total_amount) / @bill.group.users.count %>
+    needs to pay: <%= @bill.bill_equal_proportion %>
   </div>
   <% end %>
 </div>

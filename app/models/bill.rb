@@ -19,7 +19,8 @@ class Bill < ActiveRecord::Base
     # # 
     # proportions.count
 
-    amount / group.users.count
+    
+    (amount / group.users.count).round(2)
   end
 
   # def due_for_user(user)
