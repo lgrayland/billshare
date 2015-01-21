@@ -34,7 +34,9 @@
     <div>
       Total outstanding: &pound;<%= bill.amount %>
     </div>
-
+    <div>
+      You need to pay:
+    </div>
     <% @group.users.each do |user| %>
     <div>
       <%= user.first_name.first %>. <%= user.last_name %> has paid: <%= bill.proportions.where(user_id: user.id).map(&:amount).inject(:+) %>
