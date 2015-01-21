@@ -40,12 +40,6 @@ body {
         display: inline-block;
         width: 100%;
         li {
-          &:first-child {
-           float: left;
-           a {
-            color: white; //#007eb6; // Billshare Logo
-           }
-          }
           display: inline-block;
           padding: 0 10px;
           a {

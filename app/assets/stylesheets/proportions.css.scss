@@ -30,8 +30,7 @@ $border-radius: 5px;
     display: block;
     width: 100%;
     padding: $padding;
-    
-  }
+    }
 
   select {
     height: 50px;
@@ -48,6 +47,7 @@ $border-radius: 5px;
     color: white;
     display: block;
     width: 100%;
+    margin-top: 15px;
   }
 
   a, input, textarea, select, .button {
@@ -58,6 +58,7 @@ $border-radius: 5px;
     }
   }
 }
+
 
 // box header
 h2 {
