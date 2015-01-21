@@ -2,6 +2,6 @@
   <h2>Create Bill</h2>
   <%= form_for [@group, @bill] do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
-  <%= f.submit 'Create Bill' %>
+  <%= f.submit 'Create Bill', class: 'bill_create_button' %>
   <% end %>
 </div>

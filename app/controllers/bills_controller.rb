@@ -34,7 +34,7 @@ class BillsController < ApplicationController
     @bill = @group.bills.new(bill_params)
     respond_to do |format|
       if @bill.save
-        BillsMailer.bill_created(@bill).deliver
+        # BillsMailer.bill_created(@bill).deliver
         format.html { redirect_to @group, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else
@@ -69,6 +69,8 @@ class BillsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
