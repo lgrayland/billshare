@@ -39,6 +39,10 @@
   font: inherit;
   vertical-align: baseline;
  }
+ table, thead, tr, td, th{
+  padding: 5px;
+  border: 1px solid;
+ }
  /* HTML5 display-role reset for older browsers */
  article, aside, details, figcaption, figure, 
  footer, header, hgroup, menu, nav, section {
@@ -65,4 +69,7 @@
  table {
   border-collapse: collapse;
   border-spacing: 0;
+ }
+ .bill{
+  display: inline-block;
  }

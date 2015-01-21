@@ -19,8 +19,19 @@ describe Group do
 
     party.calculate_total
     expect(party.total).to eq(900)
-
   end
+
+  it "should not add user if this user alredy in group " do
+    u1 = create(:user)
+
+    gr = create(:group)
+
+    gr.users.push(u1)
+    gr.users.push(u1)
+
+    expect(gr.errors[:description]).to eq("already in group") 
+  end
+
 
   
 
