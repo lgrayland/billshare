@@ -10,7 +10,7 @@
 // border-radius: 5px; }
 
 // button
-input[type=submit] {
+input[type=submit], .button {
 padding:15px 50px; 
 background:#39a299; 
 border:0 none;
@@ -20,6 +20,7 @@ border-radius: 5px;
 font-size: 20px;
 color: white;
 margin-bottom: 20px;
+display:inline-block;
 }
 
 .login {
