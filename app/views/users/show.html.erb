@@ -3,17 +3,18 @@
     <h2>Hello <%= @user.first_name%></h2>
   </div>
 
-<div>
-<%= link_to "Edit profile", edit_user_path(@user) %>
-<%= link_to "Change password", edit_user_registration_path %>
+  <div>
+    <%= link_to "Edit profile", edit_user_path(@user), class: "button" %>
+    <%= link_to "Change password", edit_user_registration_path, class: "button" %>
+  </div>
 
-  <br>
-  <% @user.groups.each do |group| %>
+  <div>
+    <% @user.groups.each do |group| %>
     <%= group.name %> : <%= group.description %> 
     <%= link_to "Details", group_path(group), class: "button" %>
     <%= link_to "Edit", edit_group_path(group), class: "button" %>
-  <% end %>
-  <br>
+    <% end %>
+    <br>
     <%= link_to "Create new group", new_group_path, class: "button" %>
   </div>
-<div>
+  <div>
