@@ -1,9 +1,11 @@
-<div>
+<div class="module">
   <h3><%= @bill.name %></h3>
   <h4>Bill Total</h4>
   <%= number_to_currency(@bill.amount, unit: "£") %>
   <h4>Deadline</h4>
   <%= @bill.deadline %>  
-</div>
 
-<%= link_to 'Edit', edit_group_bill_path %>
+
+<%= link_to 'Edit', edit_group_bill_path class: "button" %>
+
+</div>

@@ -1,20 +1,31 @@
+html, body {
+  min-height: 100%;
+  height: 100%;
+}
+
 body {
   // background: url("billshare_background.jpg") no-repeat center center fixed;
-  background: #FFF;
-  color: #666;
-  font-family:"Arial";
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: #fafafa;
+  // background: url("http://www.barclays.co.uk/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1260093307962&ssbinary=true") no-repeat center center;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  color: #00395d;
+  font-family: verdana,arial,sans-serif;
+  
   a {
     color:#fff;
   }
+  h2 a {
+    color: #007eb6;
+  }
   header {
     // background: black;
-    background: #42444e;
+    background: #00395d;
     height: 60px;
     line-height: 60px;
+    //border-bottom: 1px solid #ececec;
     
     nav {
       margin: 0 auto;
@@ -32,14 +43,14 @@ body {
           &:first-child {
            float: left;
            a {
-            color: #39a299;
+            color: white; //#007eb6; // Billshare Logo
            }
           }
           display: inline-block;
           padding: 0 10px;
           a {
             text-decoration: none;
-            color: #fff;
+            color: #007eb6; //nav labels
           }
         }
         img {
@@ -117,7 +128,7 @@ h3 {
           li {
 
             display: none;
-            background: black;
+            background: #00395d;
             text-align: right;
             margin-right: 20px;
 
@@ -127,7 +138,7 @@ h3 {
           display: inline-block;
           font-size: 50px;
           float: right;
-          color: white;
+          color: #007eb6;
           text-decoration: none;
           margin-right: 20px;
         }
