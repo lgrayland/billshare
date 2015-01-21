@@ -18,7 +18,8 @@ class SharesController < ApplicationController
     @group = Group.find(params[:group_id])
     @share = Share.new
     # @shares = Share.where(bill_type_id: )
-    @bill_types = BillType.where(group_id: @group.id)
+    @bill_type = BillType.find(params[:bill_type_id])
+    # raise
     @users = @group.users
     # raise
   end
@@ -30,10 +31,12 @@ class SharesController < ApplicationController
   # POST /shares
   # POST /shares.json
   def create
-    @group = Group.find(params[:group_id])
-    @grouping = Grouping.find_by(user_id: params[:share][:id], group_id: params[:group_id])
 
-    @share = Share.new(bill_type_id: params[:share][:bill_type_id], grouping_id: @grouping.id, percent: params[:share][:percent])
+    raise
+    # @group = Group.find(params[:group_id])
+    # @grouping = Grouping.find_by(user_id: params[:share][:id], group_id: params[:group_id])
+
+    # @share = Share.new(bill_type_id: params[:share][:bill_type_id], grouping_id: @grouping.id, percent: params[:share][:percent])
 
     # raise
     # render :index
@@ -81,6 +84,6 @@ class SharesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def share_params
-      params.require(:share).permit(:id, :bill_type_id, :grouping_id, :percent)
+      params.require(:share).permit(:id, :bill_type_id, :grouping_id, :percent, :user_id)
     end
 end
