@@ -1,4 +1,16 @@
 <%= form_for [@group, @bill, @proportion] do |f| %>
+  <% if @proportion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proportion.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @proportion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   
   <%= @bill.name %><br />
   <%= @bill_type.name %><br />

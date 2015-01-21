@@ -12,10 +12,17 @@ class ProportionsController < ApplicationController
     @proportion = current_user.proportions.new(proportion_params)
     @proportion.bill = @bill
     @proportion.bill_type = @bill_type
-    @proportion.save
-    calculation
+    if @proportion.save
+      calculation
+      redirect_to(@group)
+    else
+      # alert('hi')
+      # raise
+      # @proportion.errors.messages = "Worng number"
+      render :new
+    end
     # raise
-    redirect_to(@group)
+    
   end
 
   private
