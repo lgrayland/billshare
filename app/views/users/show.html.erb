@@ -1,17 +1,19 @@
-<div>
-  <h3>Hello <%= @user.first_name%></h3>
-</div>
+<div class="module">
+  <div>
+    <h2>Hello <%= @user.first_name%></h2>
+  </div>
 
 <div>
 <%= link_to "Edit profile", edit_user_path(@user) %>
 <%= link_to "Change password", edit_user_registration_path %>
 
-<br>
-<% @user.groups.each do |group| %>
-  <%= group.name %> : <%= group.description %> 
-  <%= link_to "Details", group_path(group) %>
-  <%= link_to "Edit", edit_group_path(group) %> <br>
-<% end %>
-<br>
-  <%= link_to "Create new group", new_group_path %>
-</div>
+  <br>
+  <% @user.groups.each do |group| %>
+    <%= group.name %> : <%= group.description %> 
+    <%= link_to "Details", group_path(group), class: "button" %>
+    <%= link_to "Edit", edit_group_path(group), class: "button" %>
+  <% end %>
+  <br>
+    <%= link_to "Create new group", new_group_path, class: "button" %>
+  </div>
+<div>

@@ -71,6 +71,11 @@
   border-collapse: collapse;
   border-spacing: 0;
  }
- .bill{
+
+/* .bill{
   display: inline-block;
+ }*/
+
+ * {
+  box-sizing: border-box;
  }

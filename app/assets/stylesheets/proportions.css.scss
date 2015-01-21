@@ -1,71 +1,64 @@
-// input[type=text] {padding:5px; border:2px solid #ccc; 
-// -webkit-border-radius: 5px;
-// border-radius: 5px;
-// }
-// input[type=text]:focus {border-color:#333; }
+$padding: 15px;
+$module-background: white; //#dadada;
+$module-border-color: #00395d; // #39a299;
+$button-background-color: #007eb6;
+$site-width: 960px;
+$border-radius: 5px;
 
-// input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
-// cursor:pointer;
-// -webkit-border-radius: 5px;
-// border-radius: 5px; }
-
-// button
-input[type=submit], .button {
-padding:15px 50px; 
-background:#39a299; 
-border:0 none;
-cursor:pointer;
--webkit-border-radius: 5px;
-border-radius: 5px; 
-font-size: 20px;
-color: white;
-margin-bottom: 20px;
-display:inline-block;
-}
-
-// radio/dial menu
-select{
-text-align: center;
-padding:10px; 
-border: 2px solid #39a299; 
-font-size: 20px;
-color: black;
-width: 270px;
-margin-top: 10px;
-margin-bottom: 10px;
-}
-
-.login {
-  background-color: #dadada;
-  font-family: "Arial";
-  color: black;
-  text-decoration: none;
-  margin: 0 auto;
-  width: 300px;
-  border: 2px solid #39a299;
-  margin-top: 50px;
+.module {
+  background-color: $module-background;
+  width: 100%;
+  float: left;
+  -webkit-border-radius: $border-radius;
+  border-radius: $border-radius;
+  // border: 2px solid $module-border-color;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: $padding;
+
+  label {
+    display: block;
+    line-height: 1.5;
+  }
+
+  input, textarea, select {
+    border: 2px solid $module-border-color;
+    -webkit-border-radius: $border-radius;
+    border-radius: $border-radius;
+    background: white;
+    color: black;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    padding: $padding;
+    }
+
+  select {
+    height: 50px;
+  }
+
+  input[type=submit], .button {
+    padding: $padding 0; 
+    background: $button-background-color; 
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: $border-radius;
+    border-radius: $border-radius;
+    font-size: 20px;
+    color: white;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  a, input, textarea, select, .button {
+    margin-bottom: $padding;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.profile {
-  background-color: #dadada;
-  font-family: "Arial";
-  color: black;
-  text-decoration: none;
-  margin: 0 auto;
-  width: 300px;
-  border: 2px solid #39a299;
-  margin-top: 50px;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
 
 // box header
 h2 {
@@ -75,35 +68,6 @@ h2 {
 
 // forgot password text
 a {
-color: black;
-text-decoration: none;
-}
-
-// input box
-input{
-  border: 2px solid #39a299;
-  border-radius: 5px;
-  background: white;
-  background-size: 50px;
   color: black;
-  font-size: 12px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 10px
-}
-
-textarea{
-  border: 2px solid #39a299;
-  border-radius: 5px;
-  background: white;
-  background-size: 50px;
-  color: black;
-  font-size: 12px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 10px
+  text-decoration: none;
 }
