@@ -1,35 +1,50 @@
+html, body {
+  min-height: 100%;
+  height: 100%;
+}
+
 body {
-  background: url("billshare_background.jpg") no-repeat center center fixed;
-  font-family:"Arial";
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  a{
+  // background: url("billshare_background.jpg") no-repeat center center fixed;
+  background: #fafafa;
+  // background: url("http://www.barclays.co.uk/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1260093307962&ssbinary=true") no-repeat center center;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  color: #00395d;
+  font-family: verdana,arial,sans-serif;
+  
+  a {
     color:#fff;
   }
+  h2 a {
+    color: #007eb6;
+  }
   header {
-    background: black;
+    // background: black;
+    background: #00395d;
     height: 60px;
     line-height: 60px;
+    //border-bottom: 1px solid #ececec;
     
     nav {
+      margin: 0 auto;
       max-width: 960px;
       height: 60px;
       line-height: 60px;
-      margin: 0 auto;
-      float: right;
+      text-align: right;
 
       ul {
-        font-family: "Arial";
+        font-family: verdana,arial,sans-serif;
         text-align: right;
         display: inline-block;
+        width: 100%;
         li {
           display: inline-block;
           padding: 0 10px;
           a {
             text-decoration: none;
-            color: #fff;
+            color: #007eb6; //nav labels
           }
         }
         img {
@@ -40,13 +55,16 @@ body {
   }
   main {
     max-width: 960px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px 0;
+    //background: white;
+    //color: black;
   }
 
 .home {
   text-align: center;
-  font-family: "Arial";
+  font-family: verdana,arial,sans-serif;
 }
 
 h1 {
@@ -104,7 +122,7 @@ h3 {
           li {
 
             display: none;
-            background: black;
+            background: #00395d;
             text-align: right;
             margin-right: 20px;
 
@@ -114,7 +132,7 @@ h3 {
           display: inline-block;
           font-size: 50px;
           float: right;
-          color: white;
+          color: #007eb6;
           text-decoration: none;
           margin-right: 20px;
         }

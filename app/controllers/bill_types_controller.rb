@@ -1,4 +1,4 @@
-class BillTypesController < ActionController::Base
+class BillTypesController < ApplicationController
 
   def new
     @group = Group.find(params[:group_id])
@@ -15,7 +15,6 @@ class BillTypesController < ActionController::Base
   private
   def bill_type_params
     params.require(:bill_type).permit(:name, :group_id)
-    
   end
 
 end

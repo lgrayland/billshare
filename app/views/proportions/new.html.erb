@@ -1,22 +1,24 @@
-<%= form_for [@group, @bill, @proportion] do |f| %>
+<div class="module">
+  <%= form_for [@group, @bill, @proportion] do |f| %>
   <% if @proportion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@proportion.errors.count, "error") %> prohibited this category from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@proportion.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @proportion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
   
   <%= @bill.name %><br />
   <%= @bill_type.name %><br />
 
-  <%= f.label :amount %>:
+  <%= f.label :amount %>
   <%= f.number_field :amount %><br />
   
   <%= f.submit %>
-<% end %>
+  <% end %>
+</div>

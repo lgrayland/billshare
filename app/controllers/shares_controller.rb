@@ -17,7 +17,7 @@ class SharesController < ApplicationController
 
     @group = Group.find(params[:group_id])
     @share = Share.new
-    @shares = Share.where(bill_type_id: )
+    # @shares = Share.where(bill_type_id: )
     @bill_types = BillType.where(group_id: @group.id)
     @users = @group.users
     # raise
