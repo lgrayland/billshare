@@ -20,7 +20,7 @@ class Bill < ActiveRecord::Base
     # proportions.count
 
     
-    (amount / group.users.count).round(2)
+    (total_amount / group.users.count).round(2)
   end
 
   # def due_for_user(user)
@@ -31,7 +31,9 @@ class Bill < ActiveRecord::Base
   #   end
   # end
 
-
+  def outstanding_amount
+    amount - proportions.map(&:amount).inject(:+).to_f
+  end
 
   def total_amount
     amount + proportions.map(&:amount).inject(:+).to_f

@@ -2,8 +2,10 @@
   <h2><%= @bill.name %></h2>
   <h3>Bill added on:</h3>
   <%= @bill.created_at.to_formatted_s(:short) %>
+  <h4>Bill total</h4>
+  <%= @bill.amount %>
   <h4>Bill amount outstanding:</h4>
-  <%= number_to_currency(@bill.amount, unit: "£") %>
+  <%= number_to_currency(@bill.outstanding_amount, unit: "£") %>
   <h4>Deadline:</h4>
   <%= @bill.deadline.to_formatted_s(:short) %>  
 </div>
@@ -16,6 +18,9 @@
   </div>
   <div>
     needs to pay: <%= @bill.bill_equal_proportion %>
+  </div>
+  <div>
+    left to pay: <%#=  @bill.bill_equal_proportion - user payments %>
   </div>
   <% end %>
 </div>

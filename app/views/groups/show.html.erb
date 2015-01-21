@@ -29,10 +29,10 @@
       Bill type: <%= bill.bill_type.name %>
     </div>
     <div>
-      Total amount: <%= bill.try(:total_amount) %>
+      Total amount: <%= bill.amount %>
     </div>
     <div>
-      Total outstanding: &pound;<%= bill.amount %>
+      Total outstanding: &pound;<%= bill.outstanding_amount %>
     </div>
     <div>
       You need to pay:
