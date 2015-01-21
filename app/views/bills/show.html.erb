@@ -17,10 +17,10 @@
     <%= user.first_name.first.upcase %>. <%= user.last_name %>
   </div>
   <div>
-    needs to pay: <%= @bill.bill_equal_proportion %>
+    needs to pay: <%= @bill.share_for_user(user) %>
   </div>
   <div>
-    left to pay: <%#=  @bill.bill_equal_proportion - user payments %>
+    left to pay: <%=  @bill.outstanding_amount_for_user(user) %>
   </div>
   <% end %>
 </div>

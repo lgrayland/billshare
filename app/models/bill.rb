@@ -20,7 +20,7 @@ class Bill < ActiveRecord::Base
     # proportions.count
 
     
-    (total_amount / group.users.count).round(2)
+    (amount / group.users.count).round(2)
   end
 
   # def due_for_user(user)
@@ -31,14 +31,20 @@ class Bill < ActiveRecord::Base
   #   end
   # end
 
+  def share_for_user(user)
+    bill_equal_proportion
+  end
+
   def outstanding_amount
     amount - proportions.map(&:amount).inject(:+).to_f
   end
-
-  def total_amount
-    amount + proportions.map(&:amount).inject(:+).to_f
-  end
   
+  def outstanding_amount_for_user(user)
+    share_for_user(user) - paid_by_user(user)
+  end
+  def paid_by_user(user)
+    user.proportions.where(bill_id: id).map(&:amount).inject(:+).to_f
+  end
 end
 
 # u1.proportions.joins(:grouping).where(groupings: {group_id: 18}, bill_type_id: 35).first
