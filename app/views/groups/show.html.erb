@@ -1,65 +1,62 @@
-<div class="profile">
-<h2><%= @group.name %></h2>
-<p><%= @group.description %></p>
+<div class="module">
+  <h2><%= @group.name %></h2>
+  <p><%= @group.description %></p>
 
-<!-- <h2>People in the group</h2> -->
-<ul>
-  <% @group.users.each do |user| %>
-  <li>
-    <%= user.first_name %>      
-  </li>
-  <% end %>
-</ul>
+  <h2>People in the group</h2>
+  <ul>
+    <% @group.users.each do |user| %>
+    <li><%= user.first_name %></li>
+    <% end %>
+  </ul>
 
-<%= link_to 'add person', new_group_grouping_path(@group), class: "button" %>
-<%= link_to 'edit group', edit_group_path(@group), class: "button" %>
+  <%= link_to 'add person', new_group_grouping_path(@group), class: "button" %>
+  <%= link_to 'edit group', edit_group_path(@group), class: "button" %>
   <%= link_to 'new bill type', new_group_bill_type_path(@group), class: "button" %>
   <%= link_to 'add new bill', new_group_bill_path(@group), class: "button" %>
-</div><br>
+</div>
 
 
-<!-- <div class="clearfix">
-  <h2>Bills for <%= @group.name %></h2>
-  <br> -->
-  <aside>
-    <h2>Payments made</h2><br>
-    <% @group.bills.each do |bill| %>
-      <% bill.proportions.each do |proportion| %>
-        &pound;<%= proportion.amount.to_i %><br>
-        paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
-        to: <%= bill.name %><br>
-      <% end %>
-    <% end %>
-  </aside>
+<% if @bills %>
+<% @bills.each do |bill| %>
+<div class="module">
+  <div>
+    <h2><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></h2>
+  </div>
+  <div>
+    Bill type: <%= bill.bill_type.name %>
+  </div>
+  <div>
+    Total amount: <%= bill.try(:total_amount) %>
+  </div>
+  <div>
+    Total outstanding: &pound;<%= bill.amount %>
+  </div>
 
-  <% if @bills %>
-  <% @bills.each do |bill| %>
-  <div class="bill">
-    <div>
-      <h2><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></h2>
-    </div>
-    <div>
-      Bill type: <%= bill.bill_type.name %>
-    </div>
-    <div>
-      Total amount: <%= bill.try(:total_amount) %>
-    </div>
-    <div>
-      Total outstanding: &pound;<%= bill.amount %>
-    </div>
-
-    <% @group.users.each do |user| %>
-    <div>
-      <%= user.first_name.first %>. <%= user.last_name %> has paid: <%= bill.proportions.where(user_id: user.id).map(&:amount).inject(:+) %>
-    </div>
-    <% end %>
-    <div>
-      <%= link_to 'Make Payment', new_group_bill_proportion_path(@group, bill), class: "button" %>
-    </div><br>
+  <% @group.users.each do |user| %>
+  <div>
+    <%= user.first_name.first %>. <%= user.last_name %> has paid: <%= bill.proportions.where(user_id: user.id).map(&:amount).inject(:+) %>
   </div>
   <% end %>
-  <% end %>
+  <div>
+    <%= link_to 'Make Payment', new_group_bill_proportion_path(@group, bill), class: "button" %>
+  </div>
 </div>
+<% end %>
+<% end %>
+
+<aside class="module">
+  <h2>Payments made</h2><br>
+  <% @group.bills.each do |bill| %>
+  <% bill.proportions.each do |proportion| %>
+  &pound;<%= proportion.amount.to_i %><br>
+  paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
+  to: <%= bill.name %><br>
+  <% end %>
+  <% end %>
+</aside>
+
+
+
 
 
 

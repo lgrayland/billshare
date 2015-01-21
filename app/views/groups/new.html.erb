@@ -1,7 +1,7 @@
-<div class="login">
+<div class="module">
   <h2>Create Group</h2>
-<%= form_for @group do |f| %>
-<%= render partial: 'form', locals: { f: f } %>
-<%= f.submit 'Create Group' %>
-<% end %>
+  <%= form_for @group do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit 'Create Group' %>
+  <% end %>
 </div>
