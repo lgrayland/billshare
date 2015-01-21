@@ -1,3 +1,80 @@
-// Place all the styles related to the Proportions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// input[type=text] {padding:5px; border:2px solid #ccc; 
+// -webkit-border-radius: 5px;
+// border-radius: 5px;
+// }
+// input[type=text]:focus {border-color:#333; }
+
+// input[type=submit] {padding:5px 15px; background:#ccc; border:0 none;
+// cursor:pointer;
+// -webkit-border-radius: 5px;
+// border-radius: 5px; }
+
+// button
+input[type=submit] {
+padding:15px 50px; 
+background:#39a299; 
+border:0 none;
+cursor:pointer;
+-webkit-border-radius: 5px;
+border-radius: 5px; 
+font-size: 20px;
+color: white;
+margin-bottom: 20px;
+}
+
+.login {
+  background-color: #dadada;
+  font-family: "Arial";
+  color: black;
+  text-decoration: none;
+  margin: 0 auto;
+  width: 300px;
+  border: 2px solid #39a299;
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+// box header
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+// forgot password text
+a {
+color: black;
+text-decoration: none;
+}
+
+// input box
+input{
+  border: 2px solid #39a299;
+  border-radius: 5px;
+  background: white;
+  background-size: 50px;
+  color: black;
+  font-size: 12px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 10px
+}
+
+textarea{
+  border: 2px solid #39a299;
+  border-radius: 5px;
+  background: white;
+  background-size: 50px;
+  color: black;
+  font-size: 12px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 10px
+}
