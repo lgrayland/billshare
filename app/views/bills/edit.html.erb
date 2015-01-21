@@ -1,4 +1,5 @@
-<div>
+<div class="login">
+  <h2>Edit Bill</h2>
   <%= form_for [@group, @bill] do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
   <%= f.submit 'Edit Bill' %>
