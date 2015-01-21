@@ -43,6 +43,9 @@
   padding: 5px;
   border: 1px solid;
  }
+ a {
+  color: yellow;
+ }
  /* HTML5 display-role reset for older browsers */
  article, aside, details, figcaption, figure, 
  footer, header, hgroup, menu, nav, section {
@@ -52,9 +55,7 @@
   line-height: 1;
   color: white;
  }
- a {
-  color: yellow;
- }
+
  ol, ul {
   list-style: none;
  }
