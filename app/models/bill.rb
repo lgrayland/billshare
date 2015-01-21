@@ -1,10 +1,10 @@
 class Bill < ActiveRecord::Base
 
-  # validates :group_id, presence: true
-
   belongs_to :bill_type
   belongs_to :group
   has_many :proportions
+
+  validates_numericality_of :amount, greater_than: 0
 
   def bill_equal_proportion
     # count users in group
