@@ -1,9 +1,23 @@
 <div>
-  <h3><%= @bill.name %></h3>
-  <h4>Bill Total</h4>
+  <h2><%= @bill.name %></h2>
+  <h3>Bill added on:</h3>
+  <%= @bill.created_at.to_formatted_s(:short) %>
+  <h4>Bill amount outstanding:</h4>
   <%= number_to_currency(@bill.amount, unit: "£") %>
-  <h4>Deadline</h4>
-  <%= @bill.deadline %>  
+  <h4>Deadline:</h4>
+  <%= @bill.deadline.to_formatted_s(:short) %>  
+</div>
+
+<div>
+  <h2>who needs to pay</h2>
+  <% @bill.group.users.each do |user| %>
+  <div>
+    <%= user.first_name.first.upcase %>. <%= user.last_name %>
+  </div>
+  <div>
+    needs to pay: <%= @bill.try(:total_amount) / @bill.group.users.count %>
+  </div>
+  <% end %>
 </div>
 
 <%= link_to 'Edit', edit_group_bill_path %>
