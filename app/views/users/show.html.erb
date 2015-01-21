@@ -3,8 +3,8 @@
 </div>
 
 <div>
-<%#= link_to "Edit profile", edit_user_path(@user) %>
-<%= link_to "Edit profile", edit_user_registration_path %>
+<%= link_to "Edit profile", edit_user_path(@user) %>
+<%= link_to "Change password", edit_user_registration_path %>
 
 <br>
 <% @user.groups.each do |group| %>
