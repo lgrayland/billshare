@@ -5,12 +5,13 @@ class Group < ActiveRecord::Base
   has_many :bills
   has_many :bill_types
 
-  before_save :user_in_group
 
-  def user_in_group
-    arr = users.map {|i| i.id}
-    errors.add(:base, "already in group") if arr.select{|user| arr.count(user) > 1 }.count > 1
-  end
+  # before_save :user_in_group
+
+  # def user_in_group
+  #   arr = users.map {|i| i.id}
+  #   errors.add(:base, "already in group") if (arr.select{|u| arr.count(u) > 1 }.count > 1)
+  # end
 
   # before_save do
   #   raise "no users in group!" if users.empty?
