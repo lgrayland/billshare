@@ -1,0 +1,10 @@
+<% @shares.each do |share| %>
+  <%= share.percent %>
+<% end %>
+
+<%= form_for [@group,  @share] do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <%= f.submit "Set Shares" %>
+<% end %>
+
+
