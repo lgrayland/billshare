@@ -4,6 +4,7 @@ $module-border-color: #00395d; // #39a299;
 $button-background-color: #007eb6;
 $site-width: 960px;
 $border-radius: 5px;
+$margin-auto: 0 auto;
 
 .module {
   background-color: $module-background;
@@ -18,6 +19,15 @@ $border-radius: 5px;
   label {
     display: block;
     line-height: 1.5;
+  }
+
+  form {
+    width:50%;
+    margin:$margin-auto;
+  }
+
+  .bill {
+    display:inline-block;
   }
 
   input, textarea, select {
@@ -37,7 +47,7 @@ $border-radius: 5px;
   }
 
   input[type=submit], .button {
-    padding: $padding 0; 
+    padding: $padding ; 
     background: $button-background-color; 
     border: 0 none;
     cursor: pointer;
@@ -45,8 +55,8 @@ $border-radius: 5px;
     border-radius: $border-radius;
     font-size: 20px;
     color: white;
-    display: block;
-    width: 100%;
+    display: inline-block;
+    // width: 50%;
     margin-top: 15px;
   }
 
@@ -58,7 +68,6 @@ $border-radius: 5px;
     }
   }
 }
-
 
 // box header
 h2 {
