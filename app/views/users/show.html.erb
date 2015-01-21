@@ -2,7 +2,10 @@
   <div>
     <h2>Hello <%= @user.first_name%></h2>
   </div>
-
+  <p>
+   <!--  <strong>Image:</strong> -->
+    <%= link_to image_tag(@user.user_avatar.thumb.url), @user.user_avatar.detail.url %>
+  </p>
 <div>
 <%= link_to "Edit profile", edit_user_path(@user) %>
 <%= link_to "Change password", edit_user_registration_path %>
