@@ -5,12 +5,12 @@ class Group < ActiveRecord::Base
   has_many :bills
   has_many :bill_types
 
-  # validate :user_in_group
+  before_save :user_in_group
 
-  # def user_in_group
-  #   arr = users.map {|i| i.id}
-  #   errors.add(:description, "already in group") if arr.select{|user| arr.count(user) > 1 }.count > 1
-  # end
+  def user_in_group
+    arr = users.map {|i| i.id}
+    errors.add(:base, "already in group") if arr.select{|user| arr.count(user) > 1 }.count > 1
+  end
 
   # before_save do
   #   raise "no users in group!" if users.empty?
@@ -21,10 +21,5 @@ class Group < ActiveRecord::Base
   def calculate_total
     write_attribute :total, bills.map(&:amount).inject(:+)  
   end
-
-  # def calculate_percentage
-
-    
-  # end
 
 end

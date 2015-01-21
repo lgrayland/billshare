@@ -55,20 +55,20 @@ party_fruits = Bill.create!(name: "Fruits", amount: 210, deadline: "2015.2.15")
 party_girls = Bill.create!(name: "Girls", amount: 1230, deadline: "2015.2.15")
 party_music = Bill.create!(name: "Music", amount: 880, deadline: "2015.2.15")
 
-party_type = BillType.create!(name: "party")
-party.bill_types.push(party_type)
-party.bills.push(party_drinks, party_fruits, party_girls, party_music)
-party_type.bills.push(party_drinks, party_fruits, party_girls, party_music)
+# party_type = BillType.create!(name: "party")
+# party.bill_types.push(party_type)
+# party.bills.push(party_drinks, party_fruits, party_girls, party_music)
+# party_type.bills.push(party_drinks, party_fruits, party_girls, party_music)
 
 # Create and add bill types to users which involves in party
-u1_party_bill_type = BillType.create(name: "u1_paty_bill_type")
-u1.groups.find(party.id).bill_types.push(u1_party_bill_type)
+# u1_party_bill_type = BillType.create(name: "u1_paty_bill_type")
+# u1.groups.find(party.id).bill_types.push(u1_party_bill_type)
 
-u2_party_bill_type = BillType.create(name: "u2_paty_bill_type")
-u2.groups.find(party.id).bill_types.push(u2_party_bill_type)
+# u2_party_bill_type = BillType.create(name: "u2_paty_bill_type")
+# u2.groups.find(party.id).bill_types.push(u2_party_bill_type)
 
-u3_party_bill_type = BillType.create(name: "u3_paty_bill_type")
-u3.groups.find(party.id).bill_types.push(u3_party_bill_type)
+# u3_party_bill_type = BillType.create(name: "u3_paty_bill_type")
+# u3.groups.find(party.id).bill_types.push(u3_party_bill_type)
 
 ## Create percentage for users
   #u1
