@@ -20,6 +20,7 @@
   <% if @bills %>
   <% @bills.each do |bill| %>
   <div class="bill">
+  <%#= link_to bill.name, group_bill_path(@group.id, bill.id), class: "bill"%>
     <div>
       <h2><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></h2>
     </div>
