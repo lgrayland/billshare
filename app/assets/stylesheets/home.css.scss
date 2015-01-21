@@ -1,9 +1,13 @@
 body {
-  background: url("billshare_background.jpg") no-repeat center center fixed; 
+  background: url("billshare_background.jpg") no-repeat center center fixed;
+  font-family:"Arial";
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  a{
+    color:#fff;
+  }
   header {
     background: black;
     height: 60px;

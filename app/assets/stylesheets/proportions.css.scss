@@ -10,7 +10,7 @@
 // border-radius: 5px; }
 
 // button
-input[type=submit] {
+input[type=submit], .button {
 padding:15px 50px; 
 background:#39a299; 
 border:0 none;
@@ -20,9 +20,38 @@ border-radius: 5px;
 font-size: 20px;
 color: white;
 margin-bottom: 20px;
+display:inline-block;
+}
+
+// radio/dial menu
+select{
+text-align: center;
+padding:10px; 
+border: 2px solid #39a299; 
+font-size: 20px;
+color: black;
+width: 270px;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 
 .login {
+  background-color: #dadada;
+  font-family: "Arial";
+  color: black;
+  text-decoration: none;
+  margin: 0 auto;
+  width: 300px;
+  border: 2px solid #39a299;
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.profile {
   background-color: #dadada;
   font-family: "Arial";
   color: black;
