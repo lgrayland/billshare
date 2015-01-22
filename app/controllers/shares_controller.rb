@@ -18,6 +18,7 @@ class SharesController < ApplicationController
     @share = Share.new
     @bill_type = BillType.find(params[:bill_type_id])
     @users = @group.users
+    # raise
   end
 
   # GET /shares/1/edit
