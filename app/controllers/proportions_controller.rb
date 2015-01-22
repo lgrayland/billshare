@@ -13,7 +13,7 @@ class ProportionsController < ApplicationController
     @proportion.bill = @bill
     @proportion.bill_type = @bill_type
     if @proportion.save
-      calculation
+      # calculation
       redirect_to(@group)
     else
       render :new

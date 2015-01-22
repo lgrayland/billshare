@@ -4,11 +4,9 @@
     <%= f.hidden_field :bill_type_id, value: params[:bill_type_id] %> 
 
   <select name="share[grouping_id]" id="">
-    <%# if !@users.empty? %>
     <% @group.users.each do |user| %>
       <option value="<%= user.find_grouping(@group).id %>" ><%= user.first_name %></option>
     <% end %>
-    <%# end %>
   </select>
   
   <%= f.label :percent  %>:
