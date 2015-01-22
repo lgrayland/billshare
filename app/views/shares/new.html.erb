@@ -1,9 +1,18 @@
 <%= form_for [@group, @bill_type, @share] do |f| %>
   <%= @bill_type.name %>
-  <%= f.label :user_id %>
+  <%= f.hidden_field :bill_type_id, value: params[:bill_type_id] %> 
   <%#= collection_select(:user, :id, @users, :id, :first_name) %>
-  <%= select_tag :user_id, options_from_collection_for_select(@users, :id, :first_name) %>
+  <%#= select_tag :user_id, options_from_collection_for_select(@users, :id, :first_name) %>
+  <%#= f.collection_select(:grouping_id, @users, :id, :first_name) %>
+  <select name="share[grouping_id]" id="">
+    <% @users.each do |user| %>
+      <option value="<%= user.find_grouping(@group).id %>" ><%= user.first_name %></option>
+    <% end %>
+  </select>
   <%= f.label :percent  %>:
   <%= f.number_field :percent %>
   <%= f.submit %>
 <% end %>
+
+
+<!-- Share(id: integer, bill_type_id: integer, grouping_id: integer, percent: integer,  -->

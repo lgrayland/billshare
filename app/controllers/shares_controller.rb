@@ -32,9 +32,10 @@ class SharesController < ApplicationController
   # POST /shares.json
   def create
 
-    raise
+    # raise
     # @group = Group.find(params[:group_id])
     # @grouping = Grouping.find_by(user_id: params[:share][:id], group_id: params[:group_id])
+    @share = Share.new(share_params)
 
     # @share = Share.new(bill_type_id: params[:share][:bill_type_id], grouping_id: @grouping.id, percent: params[:share][:percent])
 
@@ -42,7 +43,8 @@ class SharesController < ApplicationController
     # render :index
     # respond_to do |format|
       if @share.save
-        redirect_to new_group_share_path(@group)
+        # raise
+        redirect_to new_group_bill_type_share_path(@group)
         # format.html { redirect_to @share, notice: 'Share was successfully created.' }
         # format.json { render :show, status: :created, location: @share }
       else
