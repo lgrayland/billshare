@@ -2,8 +2,12 @@
 <header>
   <nav>
     <a href="#" id="nav-icon">&#9776;</a>
+    <div>
+      <%= link_to "bill", root_path, class: "logo1"%>
+      <%= link_to "share", root_path, class: "logo2"  %>
+      <%#= link_to image_tag("billshare_logo.png"), root_path %></li>
+  </div>
     <ul>
-      <li><%= link_to image_tag("billshare_logo.png"), root_path %></li>
       <li><%= link_to 'About', about_path %></li>
       <% if current_user %>
         <li><%= link_to current_user.email, user_path(current_user) %></li>
