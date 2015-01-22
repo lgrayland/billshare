@@ -48,6 +48,9 @@
       <div>
         <%= link_to 'set shares', new_group_bill_type_share_path(@group, bill[:bill_type_id]), class: "button" %>
       </div>
+        <div>
+          <%= link_to 'edit shares', group_bill_type_shares_path(@group, bill[:bill_type_id]), class: "button" %>
+        </div>
     </div>
   <% end %>
 </div>

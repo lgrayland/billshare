@@ -1,0 +1,10 @@
+<h1>Editing share</h1>
+
+
+<%= form_for [@group, @bill_type, @share] do |f| %>
+  <h2><%= @bill_type.name %></h2>
+  <%= f.hidden_field :bill_type_id, value: params[:bill_type_id] %> 
+  <%= f.label :percent  %>:
+  <%= f.number_field :percent %>
+  <%= f.submit %>
+<% end %>

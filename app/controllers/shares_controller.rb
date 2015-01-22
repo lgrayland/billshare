@@ -1,22 +1,28 @@
 class SharesController < ApplicationController
   before_action :set_share, only: [:show, :edit, :update, :destroy]
+  before_action :set_group_bill_type
 
   # GET /shares
   # GET /shares.json
   def index
-    @shares = Share.all
+    # @shares = Share.all
+    @shares = @group.bill_types.find(params[:bill_type_id]).shares
   end
 
   # GET /shares/1
   # GET /shares/1.json
   def show
+    # @group = Group.find(params[:group_id])
+    # @bill_type = BillType.find(params[:bill_type_id])
+    @share = @bill_type.shares.find(params[:id])
   end
 
   # GET /shares/new
   def new
-    @group = Group.find(params[:group_id])
+    # @group = Group.find(params[:group_id])
+    # @bill_type = BillType.find(params[:bill_type_id])
+
     @share = Share.new
-    @bill_type = BillType.find(params[:bill_type_id])
     # @users = @group.users
   end
 
@@ -27,8 +33,8 @@ class SharesController < ApplicationController
   # POST /shares
   # POST /shares.json
   def create
-    @group = Group.find(params[:group_id])
-    @bill_type = BillType.find(params[:bill_type_id])
+    # @group = Group.find(params[:group_id])
+    # @bill_type = BillType.find(params[:bill_type_id])
     @share = Share.new(share_params)
     respond_to do |format|
       if @share.save
@@ -46,7 +52,7 @@ class SharesController < ApplicationController
   def update
     respond_to do |format|
       if @share.update(share_params)
-        format.html { redirect_to @share, notice: 'Share was successfully updated.' }
+        format.html { redirect_to group_bill_type_shares_path(@group, @bill_type), notice: 'Share was successfully updated.' }
         format.json { render :show, status: :ok, location: @share }
       else
         format.html { render :edit }
@@ -67,6 +73,12 @@ class SharesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def set_group_bill_type
+      @group = Group.find(params[:group_id])
+      @bill_type = BillType.find(params[:bill_type_id])
+    end
+
     def set_share
       @share = Share.find(params[:id])
     end

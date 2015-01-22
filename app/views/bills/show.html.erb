@@ -16,13 +16,13 @@
     <% @bill.group.users.each do |user| %>
     <div>
       <%= user.first_name.first.upcase %>. <%= user.last_name %>
-    </div>
+    </div> <br>
     <div>
       needs to pay: <%= @bill.share_for_user(user) %>
     </div>
     <div>
       left to pay: <%=  @bill.outstanding_amount_for_user(user) %>
-    </div>
+    </div> <br>
     <% end %>
   </div>
 
