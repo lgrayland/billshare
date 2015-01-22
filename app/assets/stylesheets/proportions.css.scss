@@ -2,6 +2,7 @@ $padding: 15px;
 $module-background: white; //#dadada;
 $module-border-color: #00395d; // #39a299;
 $button-background-color: #007eb6;
+$button-background-color-hover: #00a0e7; //#006896;
 $site-width: 960px;
 $border-radius: 5px;
 $margin-auto: 0 auto;
@@ -36,6 +37,10 @@ $margin-auto: 0 auto;
     color: white;
   }
 
+  .bill:hover {  
+    background-color:#004e80 ;  
+  }
+
   input, textarea, select {
     border: 2px solid $module-border-color;
     -webkit-border-radius: $border-radius;
@@ -66,6 +71,10 @@ $margin-auto: 0 auto;
     margin-top: 15px;
   }
 
+  .button:hover {
+    background: $button-background-color-hover
+  }
+
   a, input, textarea, select, .button {
     margin-bottom: $padding;
 
@@ -85,4 +94,8 @@ h2 {
 a {
   color: black;
   text-decoration: none;
+}
+
+.text {
+  color: $module-border-color; 
 }
