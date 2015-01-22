@@ -21,4 +21,6 @@
       <%= user.email %> <%= user.find_share(@bill_type, user.find_grouping(@group)).try(:percent)  %>&#37;
     <% end %>
   <% end %>
+  <br>
+  <%= link_to "Back to group", group_path(@group), class: "button" %>
 </div>
