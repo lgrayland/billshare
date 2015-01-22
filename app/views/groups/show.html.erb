@@ -15,11 +15,16 @@
   </div>
   <%= link_to 'Add Person', new_group_grouping_path(@group), class: "button" %>
   <%= link_to 'Edit Group', edit_group_path(@group), class: "button" %>
-  <%= link_to 'New Bill Type', new_group_bill_type_path(@group), class: "button" %>
-  <%= link_to 'Add New Bill', new_group_bill_path(@group), class: "button" %>
-</div>
 
-<div class="module">
+  <div>
+    <h3>Instructions:</h3>
+    <p>Step 1. First you need to set a template for your bill which you can use for future bills<br>
+      Step 2. Now you have your template you can create a bill<br>
+      Step 3. Now your bill is created, set the percentages each person will pay</p>
+    <%= link_to 'Bill Template', new_group_bill_type_path(@group), class: "button" %>
+    <%= link_to 'Add New Bill', new_group_bill_path(@group), class: "button" %>
+  </div>
+
   <% @bills.each do |bill| %>
     <div class="bill">
       <div>
@@ -35,17 +40,17 @@
         <%= link_to 'Make Payment', new_group_bill_proportion_path(@group, bill), class: "button" %>
       </div>
       <div>
-        <%= link_to 'set shares', new_group_bill_type_share_path(@group, bill[:bill_type_id]), class: "button" %>
+        <%= link_to 'Split the bill', new_group_bill_type_share_path(@group, bill[:bill_type_id]), class: "button" %>
       </div>
         <div>
-          <%= link_to 'edit shares', group_bill_type_shares_path(@group, bill[:bill_type_id]), class: "button" %>
+          <%= link_to 'Edit the split', group_bill_type_shares_path(@group, bill[:bill_type_id]), class: "button" %>
         </div>
     </div>
   <% end %>
 </div>
 
 <aside class="module">
-  <h2>Payments Made</h2>
+  <h2>Recent Payments</h2>
   <% @group.bills.each do |bill| %>
     <% bill.proportions.each do |proportion| %>
       <p>&pound;<%= proportion.amount.to_i %>  was paid on <%= proportion.created_at.to_formatted_s(:short) %> to <%= bill.name %></p>
