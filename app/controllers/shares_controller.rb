@@ -17,7 +17,7 @@ class SharesController < ApplicationController
     @group = Group.find(params[:group_id])
     @share = Share.new
     @bill_type = BillType.find(params[:bill_type_id])
-    @users = @group.users
+    # @users = @group.users
   end
 
   # GET /shares/1/edit
