@@ -5,12 +5,11 @@ html, body {
 
 body {
   // background: url("billshare_background.jpg") no-repeat center center fixed;
-  background: #fafafa;
-  // background: url("http://www.barclays.co.uk/cs/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1260093307962&ssbinary=true") no-repeat center center;
   // -webkit-background-size: cover;
   // -moz-background-size: cover;
   // -o-background-size: cover;
   // background-size: cover;
+  background: #fafafa;
   color: #00395d;
   font-family: verdana,arial,sans-serif;
   
@@ -40,8 +39,13 @@ body {
         display: inline-block;
         width: 100%;
         li:first-child {
-            position:fixed; top:1px; left:20px;
-            
+          display: block;
+          margin-top: 1px;
+          margin-left: 10px;
+          float: left;
+
+         
+
         }
         li {
           display: inline-block;
@@ -129,7 +133,6 @@ h3 {
           position: absolute;
           right: 0;
           li:first-child {
-              position:fixed; top:1px; left:10px;
               display: inline-block;
           }
           li {
