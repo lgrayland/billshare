@@ -15,26 +15,28 @@
 </div>  
 
 <script>
-$(function(){
-  $("#invite_fb_friends").click(function(){
-    FB.init({
-      appId: '<%= ENV['FBAccessKeyId'] %>', 
-      cookie: false,
-      status: true
+  $(function(){
+    $("#invite_fb_friends").click(function(){
+      FB.init({
+        appId: '<%= ENV['FBAccessKeyId'] %>', 
+        cookie: false,
+        status: true
+      });
+      FB.ui({ method: 'apprequests', message: '<%= current_user %> thinks you are really awesome'})
     });
-    FB.ui({ method: 'apprequests', message: '<%= current_user %> thinks you are really awesome'})
   });
-});
 </script>
 
-<div class="bill">
+<div class="module">
   <% @user.groups.each do |group| %>
-  <%= group.name %><br>
-   <%= group.description %> <br>
-  <%= link_to "Details", group_path(group), class: "button" %>
-  <%= link_to "Edit", edit_group_path(group), class: "button" %>
+    <div class="bill">
+      <%= group.name %><br>
+      <%= group.description %> <br>
+      <%= link_to "Details", group_path(group), class: "button" %>
+      <%= link_to "Edit", edit_group_path(group), class: "button" %>
+    </div>
   <% end %>
-  </div><br>
+</div>
 
 
 <%= link_to "Create new group", new_group_path, class: "button" %><br>

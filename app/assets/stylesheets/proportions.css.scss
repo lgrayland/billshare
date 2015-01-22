@@ -33,6 +33,8 @@ $margin-auto: 0 auto;
     margin: 5px;
     padding: 5px;
     color: white;
+    -webkit-border-radius: $border-radius;
+    border-radius: $border-radius;
   }
 
   .bill:hover {  
