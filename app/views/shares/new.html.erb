@@ -11,4 +11,9 @@
   <%= f.label :percent  %>:
   <%= f.number_field :percent %>
   <%= f.submit %>
+  <br>
+  <% @users.each do |user| %>
+    <%= user.first_name %> : <%= user.find_share(@bill_type, user.find_grouping(@group)).try(:percent)  %> <br>
+  <% end %>
 <% end %>
+
