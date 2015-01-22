@@ -14,14 +14,10 @@ class SharesController < ApplicationController
 
   # GET /shares/new
   def new
-
     @group = Group.find(params[:group_id])
     @share = Share.new
-    # @shares = Share.where(bill_type_id: )
     @bill_type = BillType.find(params[:bill_type_id])
-    # raise
-    @users = @group.users
-    # raise
+    # @users = @group.users
   end
 
   # GET /shares/1/edit
