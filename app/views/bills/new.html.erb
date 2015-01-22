@@ -1,5 +1,5 @@
 <div class="module">
-  <h2>Create Bill</h2>
+  <h2>Details for new bill</h2>
   <%= form_for [@group, @bill] do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
   <%= f.submit 'Create Bill', class: 'bill_create_button' %>

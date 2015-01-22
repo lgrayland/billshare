@@ -1,8 +1,8 @@
 
-  <div class="module">
-    <%= form_for [@group, @bill_type, @share] do |f| %>
-      <h2><%= @bill_type.name %></h2>
-      <%= f.hidden_field :bill_type_id, value: params[:bill_type_id] %> 
+<div class="module">
+  <%= form_for [@group, @bill_type, @share] do |f| %>
+    <h2>How would you like to split the <%= @bill_type.name %> bill?</h2>
+    <%= f.hidden_field :bill_type_id, value: params[:bill_type_id] %> 
 
     <select name="share[grouping_id]" id="">
       <% @group.users.each do |user| %>
@@ -10,13 +10,15 @@
       <% end %>
     </select>
     
-    <%= f.label :percent  %>:
-    <%= f.number_field :percent %>
-    <%= f.submit %>
+    <%= f.number_field :percent, placeholder: "What percentage?" %>
+    <%= f.submit "Set The Split" %>
     <br>
-    <% @group.users.each do |user| %>
-      <%= user.first_name %> : <%= user.find_share(@bill_type, user.find_grouping(@group)).try(:percent)  %> <br>
+  <% end %>
+  <% @group.users.each do |user| %>
+    <% if user.user_avatar.present? %>
+      <%= link_to image_tag(user.user_avatar.thumb.url), user.user_avatar.detail.url %> <%= user.find_share(@bill_type, user.find_grouping(@group)).try(:percent)  %>&#37;
+    <% else %>
+      <%= user.email %> <%= user.find_share(@bill_type, user.find_grouping(@group)).try(:percent)  %>&#37;
     <% end %>
   <% end %>
-
 </div>
