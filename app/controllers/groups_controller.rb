@@ -16,7 +16,6 @@ class GroupsController < ApplicationController
     @proportions = Proportion.all
     @group = Group.find(params[:id])
     @bills = Bill.where(group_id: @group.id)
-    # @bill_type = BillType.find_by(group_id: @group.id)
   end
 
   def edit
