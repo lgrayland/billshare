@@ -30,9 +30,8 @@
 <div class="module">
   <% @user.groups.each do |group| %>
     <div class="bill">
-      <%= group.name %><br>
+      <h2><%= link_to group.name, group_path(group) %></h2>
       <%= group.description %> <br>
-      <%= link_to "Details", group_path(group), class: "button" %>
       <%= link_to "Edit", edit_group_path(group), class: "button" %>
     </div>
   <% end %>
