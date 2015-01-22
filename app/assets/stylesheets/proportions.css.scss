@@ -2,7 +2,7 @@ $padding: 15px;
 $module-background: white; //#dadada;
 $module-border-color: #00395d; // #39a299;
 $button-background-color: #007eb6;
-$button-background-color-hover: #00a0e7; //#006896;
+$button-background-color-hover: #006896; //#00a0e7; 
 $site-width: 960px;
 $border-radius: 5px;
 $margin-auto: 0 auto;
@@ -13,14 +13,8 @@ $margin-auto: 0 auto;
   float: left;
   -webkit-border-radius: $border-radius;
   border-radius: $border-radius;
-  // border: 2px solid $module-border-color;
   text-align: center;
   padding: $padding;
-
-  .actions {
-    @extend .button;
-    @extend .module;
-  }
 
   label {
     display: block;
@@ -36,7 +30,6 @@ $margin-auto: 0 auto;
     display:inline-block;
     background-color:#00395d ;
     width: 300px;
-    // height: 250px;
     margin: 5px;
     padding: 5px;
     color: white;
@@ -46,7 +39,7 @@ $margin-auto: 0 auto;
     background-color:#004e80 ;  
   }
 
-  input, textarea, select {
+  input, textarea, select, {
     border: 2px solid $module-border-color;
     -webkit-border-radius: $border-radius;
     border-radius: $border-radius;
@@ -63,7 +56,7 @@ $margin-auto: 0 auto;
   }
 
   input[type=submit], .button {
-    padding: $padding ; 
+    padding: $padding; 
     background: $button-background-color; 
     border: 0 none;
     cursor: pointer;
@@ -72,13 +65,12 @@ $margin-auto: 0 auto;
     font-size: 20px;
     color: white;
     display: inline-block;
-    // width: 50%;
     margin-top: 15px;
+    &:hover {
+      background: $button-background-color-hover
+    }
   }
 
-  .button:hover {
-    background: $button-background-color-hover
-  }
 
   a, input, textarea, select, .button {
     margin-bottom: $padding;
