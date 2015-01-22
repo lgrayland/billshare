@@ -28,4 +28,5 @@
 
   <%= link_to 'Edit', edit_group_bill_path, class: "button" %>
   <%= link_to "Group page", group_path(@bill.group.id), class: "button" %>
+  <%= link_to "Email bill", {controller: "bills", action: "send_group_bill", id: @bill.id}, class: "button" %>
 </div>

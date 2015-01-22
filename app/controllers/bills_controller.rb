@@ -70,7 +70,17 @@ class BillsController < ApplicationController
     end
   end
 
+  def send_group_bill
+    @bill = Bill.find(params[:id])
+    @group = @bill.group
+    @group.users.each do |user|
+      BillsMailer.send_group_bill(@bill, @group, user).deliver
+    end
+    redirect_to group_bill_path(@group.id, @bill) and return
   
+    flash[:notice] = "Email has been sent."
+    # raise
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

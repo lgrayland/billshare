@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     
   end
   
+  get :send_group_bill, to: 'bills#send_group_bill', as: :send_group_bill
+
   authenticated :user do
     root to: "users#show", as: :authenticated_root
   end
