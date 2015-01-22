@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 20150121203850) do
   add_index "proportions", ["bill_type_id"], name: "index_proportions_on_bill_type_id", using: :btree
   add_index "proportions", ["user_id"], name: "index_proportions_on_user_id", using: :btree
 
+  create_table "shares", force: true do |t|
+    t.integer  "bill_type_id"
+    t.integer  "grouping_id"
+    t.integer  "percent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["bill_type_id"], name: "index_shares_on_bill_type_id", using: :btree
+  add_index "shares", ["grouping_id"], name: "index_shares_on_grouping_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

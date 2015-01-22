@@ -7,7 +7,10 @@ Rails.application.routes.draw do
       resources :proportions
     end  
     resources :groupings
-    resources :bill_types 
+    resources :bill_types do
+      resources :shares
+    end
+    
   end
   
   authenticated :user do

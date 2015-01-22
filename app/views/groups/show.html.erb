@@ -34,7 +34,7 @@
       Total outstanding: &pound;<%= bill.outstanding_amount %>
     </div>
     <div>
-      You need to pay:
+      You need to pay: 
     </div>
     <% @group.users.each do |user| %>
     <div>
@@ -44,24 +44,24 @@
     <div>
       <%= link_to 'Make Payment', new_group_bill_proportion_path(@group, bill), class: "button" %>
     </div>
+    <div>
+      <%= link_to 'set shares', new_group_bill_type_share_path(@group, bill[:bill_type_id]), class: "button" %>
+    </div>
   </div>
   <% end %>
   <% end %>
 </div>
 
-<aside class="module">
-  <h2>Payments made</h2><br>
-  <% @group.bills.each do |bill| %>
-  <% bill.proportions.each do |proportion| %>
-  &pound;<%= proportion.amount.to_i %><br>
-  paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
-  to: <%= bill.name %><br>
-  <% end %>
-  <% end %>
-</aside>
+<div>
+  <aside class="module">
 
-
-
-
-
-
+    <h2>Payments made</h2><br>
+    <% @group.bills.each do |bill| %>
+    <% bill.proportions.each do |proportion| %>
+    &pound;<%= proportion.amount.to_i %><br>
+    paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
+    to: <%= bill.name %><br>
+    <% end %>
+    <% end %>
+  </aside>
+</div>
