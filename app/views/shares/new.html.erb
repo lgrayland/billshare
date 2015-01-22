@@ -1,14 +1,23 @@
-<%= form_for [@group, @bill_type, @share] do |f| %>
-  <%= @bill_type.name %>
-  <%= f.hidden_field :bill_type_id, value: params[:bill_type_id] %> 
+<div class="module">
+  <%= form_for [@group, @bill_type, @share] do |f| %>
+    <h2><%= @bill_type.name %></h2>
+    <%= f.hidden_field :bill_type_id, value: params[:bill_type_id] %> 
 
-  <select name="share[grouping_id]" id="">
-    <% @users.each do |user| %>
-      <option value="<%= user.find_grouping(@group).id %>" ><%= user.first_name %></option>
-    <% end %>
-  </select>
-  
-  <%= f.label :percent  %>:
-  <%= f.number_field :percent %>
-  <%= f.submit %>
-<% end %>
+    <select name="share[grouping_id]" id="">
+      <% @users.each do |user| %>
+        <option value="<%= user.find_grouping(@group).id %>" ><%= user.first_name %></option>
+      <% end %>
+    </select>
+    
+    <%= f.label :percent  %>
+    <%= f.number_field :percent %>
+    <%= f.submit %>
+  <% end %>
+</div>
+<!-- 
+<div class="module">
+  <h2>Shares</h2>
+  <% @grouping.shares.each do |share| %>
+  <%= share.percent %>
+  <% end %>
+</div> -->
