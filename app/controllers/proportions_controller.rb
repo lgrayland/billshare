@@ -16,12 +16,9 @@ class ProportionsController < ApplicationController
       calculation
       redirect_to(@group)
     else
-      # alert('hi')
-      # raise
-      # @proportion.errors.messages = "Worng number"
       render :new
     end
-    # raise
+  
     
   end
 
