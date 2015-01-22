@@ -39,4 +39,9 @@ class User < ActiveRecord::Base
   def find_grouping(gr)
     Grouping.find_by(user_id: id, group_id: gr.id)
   end
+
+  def find_share(bt, gr)
+   sh =Share.find_by(bill_type_id: bt.id, grouping_id: gr.id)
+  end
+
 end
