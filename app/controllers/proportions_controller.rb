@@ -35,10 +35,10 @@ class ProportionsController < ApplicationController
     @bill_type = @bill.bill_type
   end
 
-  def calculation
-    @bill.amount -= @proportion.amount
-    @bill.save
-  end
+  # def calculation
+  #   @bill.amount -= @proportion.amount
+  #   @bill.save
+  # end
 
   def proportion_params
     params.require(:proportion).permit(:amount, :bill_id, :user_id, :bill_type_id)
