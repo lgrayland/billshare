@@ -3,8 +3,8 @@
     <h2><%= @group.name %></h2>
     <p><%= @group.description %></p>
   </div>
+  <br>
   <div>
-    <h2>People in the group</h2>
     <% @group.users.each do |user| %>
       <% if user.user_avatar.present? %>
         <%= link_to image_tag(user.user_avatar.thumb.url), user.user_avatar.detail.url %>
@@ -13,10 +13,10 @@
       <% end %>
     <% end %>
   </div>
-  <%= link_to 'add person', new_group_grouping_path(@group), class: "button" %>
-  <%= link_to 'edit group', edit_group_path(@group), class: "button" %>
-  <%= link_to 'new bill type', new_group_bill_type_path(@group), class: "button" %>
-  <%= link_to 'add new bill', new_group_bill_path(@group), class: "button" %>
+  <%= link_to 'Add Person', new_group_grouping_path(@group), class: "button" %>
+  <%= link_to 'Edit Group', edit_group_path(@group), class: "button" %>
+  <%= link_to 'New Bill Type', new_group_bill_type_path(@group), class: "button" %>
+  <%= link_to 'Add New Bill', new_group_bill_path(@group), class: "button" %>
 </div>
 
 <div class="module">
@@ -26,22 +26,11 @@
         <h2><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></h2>
       </div>
       <div>
-        Bill type: <%= bill.bill_type.name %>
+        Total amount: &pound;<%= bill.amount %>
       </div>
       <div>
-        Total amount: <%= bill.amount %>
+        Outstanding: &pound;<%= bill.outstanding_amount %>
       </div>
-      <div>
-        Total outstanding: &pound;<%= bill.outstanding_amount %>
-      </div>
-      <div>
-        You need to pay: 
-      </div>
-      <% @group.users.each do |user| %>
-        <div>
-          <%= user.first_name.first %>. <%= user.last_name %> has paid: <%= bill.proportions.where(user_id: user.id).map(&:amount).inject(:+) %>
-        </div>
-      <% end %>
       <div>
         <%= link_to 'Make Payment', new_group_bill_proportion_path(@group, bill), class: "button" %>
       </div>
@@ -56,12 +45,10 @@
 </div>
 
 <aside class="module">
-  <h2>Payments made</h2><br>
+  <h2>Payments Made</h2>
   <% @group.bills.each do |bill| %>
     <% bill.proportions.each do |proportion| %>
-      &pound;<%= proportion.amount.to_i %><br>
-      paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
-      to: <%= bill.name %><br>
+      <p>&pound;<%= proportion.amount.to_i %>  was paid on <%= proportion.created_at.to_formatted_s(:short) %> to <%= bill.name %></p>
     <% end %>
   <% end %>
 </aside>
