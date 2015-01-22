@@ -6,10 +6,13 @@
   <div>
     <h2>People in the group</h2>
     <% @group.users.each do |user| %>
-    <%= user.first_name %>
+      <% if user.user_avatar.present? %>
+        <%= link_to image_tag(user.user_avatar.thumb.url), user.user_avatar.detail.url %>
+      <% else %>
+        <%= user.email %>
+      <% end %>
     <% end %>
   </div>
-
   <%= link_to 'add person', new_group_grouping_path(@group), class: "button" %>
   <%= link_to 'edit group', edit_group_path(@group), class: "button" %>
   <%= link_to 'new bill type', new_group_bill_type_path(@group), class: "button" %>
@@ -17,51 +20,45 @@
 </div>
 
 <div class="module">
-  <% if @bills %>
   <% @bills.each do |bill| %>
-  <div class="bill">
-  <%#= link_to bill.name, group_bill_path(@group.id, bill.id), class: "bill"%>
-    <div>
-      <h2><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></h2>
+    <div class="bill">
+      <div>
+        <h2><%= link_to bill.name, group_bill_path(@group.id, bill.id) %></h2>
+      </div>
+      <div>
+        Bill type: <%= bill.bill_type.name %>
+      </div>
+      <div>
+        Total amount: <%= bill.amount %>
+      </div>
+      <div>
+        Total outstanding: &pound;<%= bill.outstanding_amount %>
+      </div>
+      <div>
+        You need to pay: 
+      </div>
+      <% @group.users.each do |user| %>
+        <div>
+          <%= user.first_name.first %>. <%= user.last_name %> has paid: <%= bill.proportions.where(user_id: user.id).map(&:amount).inject(:+) %>
+        </div>
+      <% end %>
+      <div>
+        <%= link_to 'Make Payment', new_group_bill_proportion_path(@group, bill), class: "button" %>
+      </div>
+      <div>
+        <%= link_to 'set shares', new_group_bill_type_share_path(@group, bill[:bill_type_id]), class: "button" %>
+      </div>
     </div>
-    <div>
-      Bill type: <%= bill.bill_type.name %>
-    </div>
-    <div>
-      Total amount: <%= bill.amount %>
-    </div>
-    <div>
-      Total outstanding: &pound;<%= bill.outstanding_amount %>
-    </div>
-    <div>
-      You need to pay: 
-    </div>
-    <% @group.users.each do |user| %>
-    <div>
-      <%= user.first_name.first %>. <%= user.last_name %> has paid: <%= bill.proportions.where(user_id: user.id).map(&:amount).inject(:+) %>
-    </div>
-    <% end %>
-    <div>
-      <%= link_to 'Make Payment', new_group_bill_proportion_path(@group, bill), class: "button" %>
-    </div>
-    <div>
-      <%= link_to 'set shares', new_group_bill_type_share_path(@group, bill[:bill_type_id]), class: "button" %>
-    </div>
-  </div>
-  <% end %>
   <% end %>
 </div>
 
-<div>
-  <aside class="module">
-
-    <h2>Payments made</h2><br>
-    <% @group.bills.each do |bill| %>
+<aside class="module">
+  <h2>Payments made</h2><br>
+  <% @group.bills.each do |bill| %>
     <% bill.proportions.each do |proportion| %>
-    &pound;<%= proportion.amount.to_i %><br>
-    paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
-    to: <%= bill.name %><br>
+      &pound;<%= proportion.amount.to_i %><br>
+      paid on: <%= proportion.created_at.to_formatted_s(:short) %><br>
+      to: <%= bill.name %><br>
     <% end %>
-    <% end %>
-  </aside>
-</div>
+  <% end %>
+</aside>
