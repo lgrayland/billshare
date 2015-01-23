@@ -8,6 +8,11 @@ class GroupingsController < ApplicationController
     @grouping = Grouping.new
   end
 
+  def delete
+    @groupind.destroy
+    redirect_to @group
+  end
+
   def create
     @group = Group.find(params[:group_id])
     @grouping = @group.groupings.new(grouping_params)

@@ -11,17 +11,11 @@ class Bill < ActiveRecord::Base
   end
 
   def share_for_user(user)
-    # grouping = Grouping.find_by(user_id: user.id, group_id: group.id)
     grouping = user.find_grouping(group)
     share = Share.find_by(bill_type_id: bill_type.id, grouping_id: grouping.id)
 
     ((amount / 100 * share.try(:percent).to_f)).round(2)
   end
-
-  # def needs_to_pay(user)
-
-    
-  # end
 
   def outstanding_amount
     amount - proportions.map(&:amount).inject(:+).to_f
