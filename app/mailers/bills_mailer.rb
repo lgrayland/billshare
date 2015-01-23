@@ -7,6 +7,6 @@ class BillsMailer < ActionMailer::Base
       @bill = bill
       @group = group
       @user = user
-      mail(to: @user.email, subject: "Your subject")
+      mail(to: @user.email, subject: "A new bill has been aded")
     end
 end

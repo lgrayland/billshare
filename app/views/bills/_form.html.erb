@@ -1,16 +1,15 @@
 <div>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "What is the name of the bill?" %>
 </div>
+<br>
 <div>
-  <%= f.label :bill_type_id %>
-  <%= f.collection_select(:bill_type_id, @bill_types, :id, :name ) %>
+  <%= f.collection_select(:bill_type_id, @bill_types, :id, :name, {:prompt => "Select a bill template"} ) %>
 </div>
+<br>
 <div>
-  <%= f.label :amount %>
-  <%= f.number_field :amount %>
+  <%= f.number_field :amount, placeholder: "How much is the bill?" %>
 </div>
 <div>
   <%= f.label :deadline %>
-  <%= f.date_field :deadline %><br />
+  <%= f.date_field :deadline, placeholder: "When is the bill due?" %><br />
 </div>

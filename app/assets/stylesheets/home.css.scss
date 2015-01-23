@@ -69,10 +69,11 @@ body {
   }
 
   .logo1  {
+    font-family: trebuchet MS,bold;
     color: white;
-    margin-top: 3px;
+    margin-top: 4px;
     margin-left: 20px;
-    font-size: 70px;
+    font-size: 72px;
     position: absolute;
     top: 0;
     left: 0;
@@ -104,13 +105,28 @@ h3 {
   font-size: 1em;
 }
 .screens {
-  padding-right: 20px; 
   margin-top: 50px;
-  float: right;
-  max-width: 90%;
+  max-width: 70%;
 
 }
+span {
+  clear: both;
+  float: left;
+  font-size: 20px;
+  text-align: justify;
+  margin-left: 70px;
+  margin-top: 10px;
+  width: 380px;
+}
 
+.step {
+  margin-right: 70px;
+  // margin-top: 10px;
+  float: right;
+  max-width: 40%;
+  display: block;
+
+}
   footer {
 
   }

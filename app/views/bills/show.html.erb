@@ -1,32 +1,35 @@
 <div class="module">
   <div>
-    <h2><%= @bill.name %></h2>
-    <h3>Bill added on:</h3>
+    <h4><%= @bill.name %></h4>
+    <h2>This bill was added on</h2>
     <%= @bill.created_at.to_formatted_s(:short) %>
     <h4>Bill total</h4>
-    <%= @bill.amount %>
+    &pound;<%= @bill.amount %>
     <h4>Bill amount outstanding:</h4>
-    <%= number_to_currency(@bill.outstanding_amount, unit: "£") %>
-    <h4>Deadline:</h4>
+    &pound;<%= @bill.outstanding_amount %>
+    <h4>This bill needs to be paid by</h4>
     <%= @bill.deadline.to_formatted_s(:short) %>  
-  </div>
+
+
+
 
   <div>
-    <h2>who needs to pay</h2>
+    <h2>Who needs to pay</h2>
     <% @bill.group.users.each do |user| %>
     <div>
-      <%= user.first_name.first.upcase %>. <%= user.last_name %>
-    </div> <br>
-    <div>
-      needs to pay: <%= @bill.share_for_user(user) %>
-    </div>
-    <div>
-      left to pay: <%=  @bill.outstanding_amount_for_user(user) %>
-    </div> <br>
+    <% if user.user_avatar.present? %>
+      <%= link_to image_tag(user.user_avatar.thumb.url), user.user_avatar.detail.url %> needs to pay: <%= @bill.share_for_user(user) %>
+    <% else %>
+      <%= user.email %> needs to pay: <%= @bill.share_for_user(user) %>
     <% end %>
+  <% end %>
   </div>
+
+
 
   <%= link_to 'Edit', edit_group_bill_path, class: "button" %>
   <%= link_to "Group page", group_path(@bill.group.id), class: "button" %>
   <%= link_to "Email bill", {controller: "bills", action: "send_group_bill", id: @bill.id}, class: "button" %>
+    <br>
+
 </div>

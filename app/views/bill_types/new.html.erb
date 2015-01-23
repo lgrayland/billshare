@@ -1,8 +1,7 @@
 <div class="module">
-  <h2>New Bill Type</h2>
+  <h2>Choose a name for your new bill template</h2>
   <%= form_for [@group, @bill_type] do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit %>
+    <%= f.text_field :name, placeholder: "Name"%>
+    <%= f.submit 'Create Bill Type'%>
   <% end %>
 </div>

@@ -73,7 +73,6 @@ $margin-auto: 0 auto;
     }
   }
 
-
   a, input, textarea, select, .button {
     margin-bottom: $padding;
 
@@ -99,11 +98,8 @@ a {
   color: $module-border-color; 
 }
 
-.main {
-  font-size: 20px;
-  text-align: justify;
-  margin-left: 70px;
-  width: 380px;
+h5 {
+  font-size: 25px;
 }
 
 h4 {
