@@ -8,9 +8,9 @@ class Share < ActiveRecord::Base
 
   # validate :no_more_than_100
 
-  # def no_more_than_100
-  #     errors.add(:base, "can't be greater than 100 %") if bill_type.exceed_percents?(percent)
-  # end
+  def no_more_than_100
+      errors.add(:base, "can't be greater than 100 %") if bill_type.exceed_percents?(percent)
+  end
 
   # validate :current_percentage_is_less_than_already_paid
   # def current_percentage_is_less_than_already_paid
