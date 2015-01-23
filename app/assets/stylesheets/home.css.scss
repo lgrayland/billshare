@@ -106,7 +106,7 @@ h3 {
 }
 .screens {
   margin-top: 50px;
-  max-width: 70%;
+  max-width: auto;
 
 }
 span {
@@ -114,16 +114,14 @@ span {
   float: left;
   font-size: 20px;
   text-align: justify;
-  margin-left: 70px;
   margin-top: 10px;
-  width: 380px;
+  width: 370px;
 }
 
 .step {
-  margin-right: 70px;
-  // margin-top: 10px;
+ 
+  margin-top: 10px;
   float: right;
-  max-width: 40%;
   display: block;
 
 }
@@ -150,8 +148,9 @@ span {
       }
     }
   }
-
 }
+
+
 
 @media screen and (max-width:960px) {
 
@@ -183,9 +182,21 @@ span {
       }
     }
   }
+
 }
 
+@media screen and (min-width: 541px) {
+  .step {
+    max-width: 50%;
+  }
 
+}
+
+@media screen and (max-width:540px) {
+  .step {
+    max-width: 100%;
+  }
+}
 
  
 
