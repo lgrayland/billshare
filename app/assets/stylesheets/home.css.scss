@@ -109,19 +109,22 @@ h3 {
   max-width: 70%;
 
 }
-.about {
+span {
   clear: both;
   float: left;
   font-size: 20px;
   text-align: justify;
   margin-left: 70px;
+  margin-top: 10px;
   width: 380px;
 }
 
 .step {
-  margin-top: 50px;
+  margin-right: 70px;
+  // margin-top: 10px;
   float: right;
-  max-width: 100%;
+  max-width: 40%;
+  display: block;
 
 }
   footer {
