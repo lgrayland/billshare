@@ -12,6 +12,15 @@ class GroupsController < ApplicationController
     redirect_to(@group)
   end
 
+#####
+  def destroy
+    @group = Group.find(params[:id])
+    @group.users.pop(@user)
+    @group.save
+    redirect_to(@group)
+  end
+#####
+
   def show
     @proportions = Proportion.all
     @group = Group.find(params[:id])
