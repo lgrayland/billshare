@@ -32,8 +32,7 @@ gem "letter_opener"
 
 group :production do
   gem 'rails_12factor' 
-end 
-
+end
 group :development, :test do
   gem "quiet_assets"
   gem 'pry-rails'
