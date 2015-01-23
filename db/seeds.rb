@@ -43,17 +43,17 @@ Proportion.delete_all
 #########################
 #### CREATE PARTY #######
 #########################
-u1 = User.create!(email: "u1@u1.com", password: "password", first_name: "u1", last_name: "u1l")
-u2 = User.create!(email: "u2@u2.com", password: "password", first_name: "u2", last_name: "u2l")
-u3 = User.create!(email: "u3@u3.com", password: "password", first_name: "u3", last_name: "u3l")
+# u1 = User.create!(email: "u1@u1.com", password: "password", first_name: "u1", last_name: "u1l")
+# u2 = User.create!(email: "u2@u2.com", password: "password", first_name: "u2", last_name: "u2l")
+# u3 = User.create!(email: "u3@u3.com", password: "password", first_name: "u3", last_name: "u3l")
 
-party = Group.create!(name: "Party", description: "All night party")
-party.users.push(u1, u2, u3)
+# party = Group.create!(name: "Party", description: "All night party")
+# party.users.push(u1, u2, u3)
 
-party_drinks = Bill.create!(name: "Drinks", amount: 430, deadline: "2015.2.15")
-party_fruits = Bill.create!(name: "Fruits", amount: 210, deadline: "2015.2.15")
-party_girls = Bill.create!(name: "Girls", amount: 1230, deadline: "2015.2.15")
-party_music = Bill.create!(name: "Music", amount: 880, deadline: "2015.2.15")
+# party_drinks = Bill.create!(name: "Drinks", amount: 430, deadline: "2015.2.15")
+# party_fruits = Bill.create!(name: "Fruits", amount: 210, deadline: "2015.2.15")
+# party_girls = Bill.create!(name: "Girls", amount: 1230, deadline: "2015.2.15")
+# party_music = Bill.create!(name: "Music", amount: 880, deadline: "2015.2.15")
 
 # party_type = BillType.create!(name: "party")
 # party.bill_types.push(party_type)

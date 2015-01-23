@@ -5,12 +5,3 @@
     <%= f.submit "Add Person" %>
   <% end %>
 </div>
-
-<div class="module">
-  <h2><%= "remove person from #{@group.name}" %></h2> 
-  <%= form_for [@group, @grouping], method: :delete do |f| %>
-    <%= f.collection_select(:user_id, @group.users, :id, :first_name ) %>
-    <%= f.submit %>
-  <% end %>
-</div>
-
