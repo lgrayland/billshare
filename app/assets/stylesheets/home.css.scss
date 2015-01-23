@@ -105,13 +105,25 @@ h3 {
   font-size: 1em;
 }
 .screens {
-  padding-right: 20px; 
   margin-top: 50px;
-  float: right;
-  max-width: 90%;
+  max-width: 70%;
 
 }
+.about {
+  clear: both;
+  float: left;
+  font-size: 20px;
+  text-align: justify;
+  margin-left: 70px;
+  width: 380px;
+}
 
+.step {
+  margin-top: 50px;
+  float: right;
+  max-width: 100%;
+
+}
   footer {
 
   }
