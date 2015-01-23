@@ -1,5 +1,6 @@
 <div class="module">    
-<% @shares.each do |share| %>
-  <%= share.grouping.user.first_name %> : <%= share.percent  %> 
-  <%= link_to 'edit', edit_group_bill_type_share_path(@group, @bill_type, share.id), class: "button" %> <br>
-<% end %>
+  <% @shares.each do |share| %>
+    <p>The current percentage for <%= share.grouping.user.first_name %> is: <%= share.percent  %>&#37</p>
+    <%= link_to 'edit', edit_group_bill_type_share_path(@group, @bill_type, share.id), class: "button" %> <br>
+  <% end %>
+</div>

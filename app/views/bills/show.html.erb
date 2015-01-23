@@ -1,12 +1,12 @@
 <div class="module">
   <div>
-    <h2><%= @bill.name %></h2>
-    <h3>Bill added on:</h3>
+    <h4><%= @bill.name %></h4>
+    <h2>This bill was added on</h2>
     <%= @bill.created_at.to_formatted_s(:short) %>
     <h4>Bill total</h4>
-    <%= @bill.amount %>
+    &pound;<%= @bill.amount %>
     <h4>Bill amount outstanding:</h4>
-    <%= number_to_currency(@bill.outstanding_amount, unit: "£") %>
+    &pound;<%= @bill.outstanding_amount %>
     <h4>Deadline:</h4>
     <%= @bill.deadline.to_formatted_s(:short) %>  
   </div>
@@ -18,10 +18,10 @@
       <%= user.first_name.first.upcase %>. <%= user.last_name %>
     </div> <br>
     <div>
-      needs to pay: <%= @bill.share_for_user(user) %>
+      needs to pay: &pound;<%= @bill.share_for_user(user)%>
     </div>
     <div>
-      left to pay: <%=  @bill.outstanding_amount_for_user(user) %>
+      left to pay: &pound;<%=  @bill.outstanding_amount_for_user(user) %>
     </div> <br>
     <% end %>
   </div>
