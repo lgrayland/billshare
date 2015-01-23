@@ -1,1 +1,7 @@
-Bill <%= @bill.name %> has jast been created!
+Hi <%= @user.first_name %>,
+
+A new <%= @bill.name %> has jast been been added to the <%= @group.name %> group of £<%= @bill.amount %>
+The bill needs to be paid by <%= @bill.deadline.to_formatted_s(:short) %>.
+You need to pay £<%= @bill.share_for_user(@user) %> of this bill
+
+Thanks
