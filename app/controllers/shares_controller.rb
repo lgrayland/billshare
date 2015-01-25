@@ -12,16 +12,11 @@ class SharesController < ApplicationController
   # GET /shares/1
   # GET /shares/1.json
   def show
-    # @group = Group.find(params[:group_id])
-    # @bill_type = BillType.find(params[:bill_type_id])
     @share = @bill_type.shares.find(params[:id])
   end
 
   # GET /shares/new
   def new
-    # @group = Group.find(params[:group_id])
-    # @bill_type = BillType.find(params[:bill_type_id])
-
     @share = Share.new
     # @users = @group.users
   end
@@ -33,8 +28,6 @@ class SharesController < ApplicationController
   # POST /shares
   # POST /shares.json
   def create
-    # @group = Group.find(params[:group_id])
-    # @bill_type = BillType.find(params[:bill_type_id])
     @share = Share.new(share_params)
     respond_to do |format|
       if @share.save
