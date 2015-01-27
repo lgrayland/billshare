@@ -6,24 +6,24 @@
     <div>
       This bill was added on
     
-    <%= @bill.created_at.to_formatted_s(:short) %></div>
+    <%= @bill.created_at.try(:to_formatted_s, :short) %></div>
     <div>Bill total
     &pound;<%= @bill.amount %></div>
     <div>Bill amount outstanding:
     &pound;<%= @bill.outstanding_amount %></div>
     <div>This bill needs to be paid by
-    <%= @bill.deadline.to_formatted_s(:short) %></div>  
-  </div
+    <%= @bill.deadline.try(:to_formatted_s, :short) %></div>  
+  </div>
 
   <div>
     <h2>Who needs to pay</h2>
     <% @bill.group.users.each do |user| %>
       <% if user.user_avatar.present? %>
       <div>
-        <%= link_to image_tag(user.user_avatar.thumb.url), user.user_avatar.detail.url %> needs to pay: &pound;<%= @bill.share_for_user(user) %></div>
+        <%= link_to image_tag(user.user_avatar.thumb.url), user.user_avatar.detail.url %> needs to pay &pound;<%= @bill.share_for_user(user) %></div>
       <% else %>
       <div>
-        <%= user.email %> <br> needs to pay: <%= @bill.share_for_user(user) %></div>
+        <%= user.email %> <br> needs to pay <%= @bill.share_for_user(user) %></div>
       <% end %>
     <% end %>
 

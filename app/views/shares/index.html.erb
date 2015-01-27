@@ -1,7 +1,12 @@
 <div class="module"> 
   <h2>Share of the bill</h2>   
   <% @shares.each do |share| %>
-    <%= share.grouping.user.first_name %> : <%= share.percent  %>&#37; 
-    <%= link_to 'edit', edit_group_bill_type_share_path(@group, @bill_type, share.id), class: "button" %> <br>
+    <% if share.grouping.user.user_avatar.present? %>
+      <%= link_to image_tag(share.grouping.user.user_avatar.thumb.url), share.grouping.user.user_avatar.detail.url %> <%= share.percent  %>&#37;
+      <%= link_to 'edit', edit_group_bill_type_share_path(@group, @bill_type, share.id), class: "button" %><br>
+    <% else %>
+    <%= share.grouping.user.first_name %> <%= share.percent  %>&#37; 
+    <%= link_to 'edit', edit_group_bill_type_share_path(@group, @bill_type, share.id), class: "button" %><br>
+    <% end %>
   <% end %>
 </div>
